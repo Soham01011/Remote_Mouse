@@ -9,13 +9,31 @@ import socket
 import threading
 import sys
 import time
-import base64
-import io
 import pygetwindow as gw
 import subprocess
+import uuid
+import qrcode
+from PIL import Image, ImageTk
 
 client_ip = None
 current_dir = "/"  
+qr_session_tk = uuid.uuid4()
+print("session tocken : " ,qr_session_tk)
+qr_show = True
+
+def generate_qr_code(data,ip,file_path="qr_code.png"):
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=8,
+        border=4,
+    )
+    qr.add_data(str(data)+' '+str(ip))
+    qr.make(fit=True)
+
+    img = qr.make_image(fill="black", back_color="white")
+    img.save(file_path)
+    return file_path
 
 async def handle_client(websocket, path, current_conn):
     global current_dir
@@ -36,6 +54,11 @@ async def authorize_user(websocket, message,current_conn):
     global client_ip
     data = json.loads(message)
     if data.get("password") == pwd_entry.get():
+        await websocket.send(json.dumps({"status": "authenticated"}))
+        client_ip = websocket.remote_address[0]
+        current_conn.config(text=f"Connected: {client_ip}")
+    elif data.get("qr") == qr_session_tk:
+        print("QR : ", websocket.remote_address[0])
         await websocket.send(json.dumps({"status": "authenticated"}))
         client_ip = websocket.remote_address[0]
         current_conn.config(text=f"Connected: {client_ip}")
@@ -300,8 +323,21 @@ def stop_server():
     loop.close()
     sys.exit()
 
+def qr_dis():
+    global qr_show
+    if(qr_show):
+        qr_code_label.place_forget()
+        qr_show = False
+        dsiplay_qr.config(text='Show QR')
+    else:
+        qr_code_label.place(x=450 , y=270)
+        qr_show = True
+        dsiplay_qr.config(text='Hide QR')
+
+
 if __name__ == "__main__":
     IP = socket.gethostbyname(socket.gethostname())
+    generate_qr_code(qr_session_tk,IP)
     root = Tk()
     menubar = Menu(root)
     homeFrame = Frame(root, height=600, width=800, bg="#19A7CE")
@@ -312,6 +348,10 @@ if __name__ == "__main__":
     current_conn = Label(homeFrame, height=2, width=40, bg="#3ABEF9", fg='#FFFFFF', text='START SERVER', font=('Arial', 15))
     pwd_lbl = Label(homeFrame, height=2 , width=15, bg="#3ABEF9", fg='#FFFFFF', text='Password', font=('Arial', 15))
     pwd_entry = Entry(homeFrame, width= 10 ,bg="#3ABEF9", fg='#FFFFFF',show='*',font=(15))
+    dsiplay_qr = Button(homeFrame, height=2, width=10, text="Hide QR", font=('Arial', 15), bg="#19A7CE", fg='#FFFFFF', activebackground='#F6F1F1', activeforeground='#19A7CE', command=qr_dis)
+    img = Image.open("qr_code.png")
+    photo_img = ImageTk.PhotoImage(img)
+    qr_code_label = Label(homeFrame, image=photo_img)
 
 
     yourIPAddr.place(x=10, y=10)
@@ -320,6 +360,8 @@ if __name__ == "__main__":
     current_conn.place(x=10, y=200)
     pwd_lbl.place(x = 10 , y = 130)
     pwd_entry.place(x  =320 , y = 130)
+    dsiplay_qr.place(x =10 , y = 270)
+    qr_code_label.place(x=450 , y=270)
     
 
     homeFrame.propagate(0)
