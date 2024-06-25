@@ -160,12 +160,25 @@ class _RemoteMouseHomePageState extends State<RemoteMouseHomePage> {
       }
     });
   }
-
   void focusApp(String appName) {
     if (generalChannel != null) {
-      generalChannel!.sink.add("FOCUS_APP,$appName");
+      generalChannel!.sink.add("FOCUS_APP,$appName,open");
     }
   }
+
+  void opencloseApp(String appName) {
+    // Debounce single tap to check if it's a double tap
+    if (_tapTimer != null && _tapTimer!.isActive) {
+      _tapTimer!.cancel();
+      if (generalChannel != null) {
+        generalChannel!.sink.add("FOCUS_APP,$appName,close");
+      }
+    } else {
+      _tapTimer = Timer(Duration(milliseconds: 300), () => focusApp(appName));
+    }
+  }
+
+
 
   void fetchRunningApps() {
     if (appChannel != null) {
@@ -692,7 +705,7 @@ class _RemoteMouseHomePageState extends State<RemoteMouseHomePage> {
                               itemBuilder: (context, index) {
                                 var app = runningApps[index];
                                 return GestureDetector(
-                                  onTap: () => focusApp(app['name']),
+                                  onTap: () => opencloseApp(app['name']),
                                   // Add onTap handler to focus the app
                                   child: ListTile(
                                     leading: app['icon'] != null
