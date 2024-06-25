@@ -84,17 +84,26 @@ def get_running_apps():
             running_apps.append({"name": window})
     return running_apps
 
-def focus_app(app_name):
+def focus_app(app_name, action):
     try:
-        window = gw.getWindowsWithTitle(app_name)
-        if window:
-            window[0].activate()
-            return f"Focused on {app_name}"
-        else:
+        print("App name:", app_name, 'Action:', action)
+        windows = gw.getWindowsWithTitle(app_name)
+        
+        if not windows:
             return f"Application {app_name} not found"
+        
+        window = windows[0]
+
+        if action == 'open':
+            window.activate()
+            return f"Focused on {app_name}"
+        elif action == 'close':
+            window.close()
+            return f"Closed {app_name}"
+        else:
+            return f"Unknown action {action} for {app_name}"
     except Exception as e:
         return f"Error focusing on {app_name}: {e}"
-
 def hotkey(command):
     if(command == "COPY"):
         pyautogui.keyDown("ctrl")
@@ -276,7 +285,7 @@ async def handle_general_command(websocket, message):
             "YT": lambda: handle_webbrowser_command("YT"),
             "CG": lambda: handle_webbrowser_command("CG"),
         }
-        parts = message.split(',', 1)
+        parts = message.split(',', 2)
         action = parts[0]
         if action == "TYPE" and len(parts) == 2:
             _, text = parts
@@ -293,7 +302,8 @@ async def handle_general_command(websocket, message):
                 command[action]()
         elif action == "FOCUS_APP":
                 app_name = parts[1]
-                focus_app(app_name)
+                act = parts[2]
+                focus_app(app_name,act)
         elif action == "START":
             quickStart(parts[1])
         else:
