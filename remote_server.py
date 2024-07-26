@@ -13,6 +13,8 @@ import pygetwindow as gw
 import subprocess
 import uuid
 import qrcode
+from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
+from comtypes import CLSCTX_ALL
 from PIL import Image, ImageTk
 
 client_ip = None
@@ -20,6 +22,7 @@ current_dir = "/"
 qr_session_tk = uuid.uuid4()
 print("session tocken : " ,qr_session_tk)
 qr_show = True
+
 
 def generate_qr_code(data,ip,file_path="qr_code.png"):
     qr = qrcode.QRCode(
@@ -86,7 +89,6 @@ def get_running_apps():
 
 def focus_app(app_name, action):
     try:
-        print("App name:", app_name, 'Action:', action)
         windows = gw.getWindowsWithTitle(app_name)
         
         if not windows:
@@ -225,7 +227,30 @@ def handle_webbrowser_command(command):
     else:
         pass
 
-            
+def monitor_advertisement_windows():
+    is_mute = False
+    
+    while True:
+        windows = gw.getWindowsWithTitle("")
+        found_ad = False
+
+        for window in windows:
+            if ("advertisement" == window.title.lower()) or ("spotify" == window.title.lower()):
+                found_ad = True
+                if not is_mute:
+                    pyautogui.press("volumemute")
+                    is_mute = True
+                    print("Muted")
+                break
+        
+        if not found_ad and is_mute:
+            pyautogui.press("volumemute")
+            is_mute = False
+            print("Unmuted")
+
+        time.sleep(1)
+
+           
 async def handle_mouse_command(websocket, message):
     if (message.startswith("MOUSE_MOVE") & (client_ip == websocket.remote_address[0])):
         _, dx, dy = message.split(',')
@@ -323,6 +348,8 @@ def start_server_thread(current_conn):
     current_conn.config(text=f"Waiting for connection ...")
     server_thread = threading.Thread(target=start_server, args=(current_conn,))
     server_thread.start()
+    monitor_thread = threading.Thread(target=monitor_advertisement_windows)
+    monitor_thread.start()
 
 def stop_server():
     client_ip = None
