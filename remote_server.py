@@ -1,3 +1,4 @@
+import io
 from tkinter import *
 import asyncio
 import websockets
@@ -12,59 +13,87 @@ import time
 import pygetwindow as gw
 import subprocess
 import uuid
+import hashlib
 import qrcode
 from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
 from comtypes import CLSCTX_ALL
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageGrab
 
 client_ip = None
-current_dir = "/"  
-qr_session_tk = uuid.uuid4()
-print("session tocken : " ,qr_session_tk)
 qr_show = True
+broadcasting = True
+connected_clients = set()
 
 
-def generate_qr_code(data,ip,file_path="qr_code.png"):
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=8,
-        border=4,
+async def main(current_conn):
+    broadcast_task = asyncio.create_task(broadcast_server_ready())
+
+    general_server = await websockets.serve(lambda ws, path: handle_client(ws, path, current_conn, broadcast_task), "0.0.0.0", 9999)
+    mouse_server = await websockets.serve(lambda ws, path: handle_client(ws, path, current_conn, broadcast_task), "0.0.0.0", 9998)
+    app_list_server = await websockets.serve(lambda ws, path: handle_client(ws, path, current_conn, broadcast_task), "0.0.0.0", 9997)
+    screen_mirror_server = await websockets.serve(lambda ws, path: handle_client(ws, path, current_conn, broadcast_task), "0.0.0.0", 9996)
+
+    await asyncio.gather(
+        general_server.wait_closed(),
+        mouse_server.wait_closed(),
+        app_list_server.wait_closed(),
+        screen_mirror_server.wait_closed(),
     )
-    qr.add_data(str(data)+' '+str(ip))
-    qr.make(fit=True)
 
-    img = qr.make_image(fill="black", back_color="white")
-    img.save(file_path)
-    return file_path
 
-async def handle_client(websocket, path, current_conn):
+async def authorize_user(websocket, message, current_conn, broadcast_task):
+    global client_ip, broadcasting
+    data = json.loads(message)
+
+    if data.get("password") == pwd_entry.get() and broadcasting:
+        await websocket.send(json.dumps({"status": "authenticated"}))
+        client_ip = websocket.remote_address[0]
+        current_conn.config(text=f"Connected: {client_ip}")
+        broadcasting = False  
+        broadcast_task.cancel()  
+
+    elif "client_ip" in data and data.get("client_ip") == websocket.remote_address[0] and not broadcasting:
+        client_ip = websocket.remote_address[0]
+        print(f"Client IP authenticated: {client_ip}")
+        await websocket.send(json.dumps({"status": "authenticated"}))
+        current_conn.config(text=f"Connected: {client_ip}")
+        broadcasting = False  
+        broadcast_task.cancel()  
+
+    else:
+        await websocket.send(json.dumps({"status": "unauthorized"}))
+
+async def broadcast_server_ready():
+    device_name = socket.gethostname()
+    server_ip = socket.gethostbyname(socket.gethostname())
+    password = pwd_entry.get()
+    broadcast_port = 9995  # The port the Flutter app is listening on
+    message = f"IP: {server_ip}, Device: {device_name},Password : {password}".encode('utf-8')
+
+    udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    udp_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+
+    while broadcasting:
+        udp_socket.sendto(message, ('<broadcast>', broadcast_port))  # Send broadcast
+        print(f"Broadcasting message: {message}")
+        await asyncio.sleep(5)
+
+async def handle_client(websocket, path, current_conn, broadcast_task):
     global current_dir
     async for message in websocket:
         try:
             if path == "/auth":
-                await authorize_user(websocket, message,current_conn)
-            if path == "/mouse":
-                await handle_mouse_command(websocket,message)
+                await authorize_user(websocket, message, current_conn, broadcast_task)
+            elif path == "/mouse":
+                await handle_mouse_command(websocket, message)
             elif path == "/apps":
                 await handle_apps_command(websocket)
+            elif path == "/screen_mirror":
+                await handle_screen_mirroring(websocket)
             else:
                 await handle_general_command(websocket, message)
         except Exception as e:
             print(f"Error handling command '{message}': {e}")
-
-async def authorize_user(websocket, message,current_conn):
-    global client_ip
-    data = json.loads(message)
-    if data.get("password") == pwd_entry.get():
-        await websocket.send(json.dumps({"status": "authenticated"}))
-        client_ip = websocket.remote_address[0]
-        current_conn.config(text=f"Connected: {client_ip}")
-    elif data.get("qr") == qr_session_tk:
-        print("QR : ", websocket.remote_address[0])
-        await websocket.send(json.dumps({"status": "authenticated"}))
-        client_ip = websocket.remote_address[0]
-        current_conn.config(text=f"Connected: {client_ip}")
     else:
         await websocket.send(json.dumps({"status": "unauthorized"}))
 
@@ -227,35 +256,89 @@ def handle_webbrowser_command(command):
     else:
         pass
 
-def monitor_advertisement_windows():
-    is_mute = False
-    
-    while True:
-        windows = gw.getWindowsWithTitle("")
-        found_ad = False
+async def handle_screen_mirroring(websocket):
+    """Capture screen and send images continuously for screen mirroring."""
+    connected_clients.add(websocket)
+    try:
+        previous_hash = None
+        while True:
+            # Capture the screen
+            screen = ImageGrab.grab()
+            buffered = io.BytesIO()
+            screen.save(buffered, format="JPEG")
+            img_bytes = buffered.getvalue()
 
-        for window in windows:
-            if ("advertisement" == window.title.lower()) or ("spotify" == window.title.lower()):
-                found_ad = True
-                if not is_mute:
-                    pyautogui.press("volumemute")
-                    is_mute = True
-                    print("Muted")
-                break
-        
-        if not found_ad and is_mute:
-            pyautogui.press("volumemute")
-            is_mute = False
-            print("Unmuted")
+            # Create a hash to check if the image is different from the last one
+            current_hash = hashlib.md5(img_bytes).hexdigest()
 
-        time.sleep(1)
+            if current_hash != previous_hash:
+                # Only send the image if it's different from the last one
+                await websocket.send(img_bytes)
+                previous_hash = current_hash
 
+            # Send a ping to keep the connection alive
+            try:
+                await websocket.ping()
+            except Exception as e:
+                print(f"Error in sending ping: {e}")
+
+            # Adjust based on performance (throttling the update rate)
+            await asyncio.sleep(0.1)
+
+    except websockets.ConnectionClosed:
+        print("Screen mirroring stopped.")
+    finally:
+        connected_clients.remove(websocket)
            
 async def handle_mouse_command(websocket, message):
-    if (message.startswith("MOUSE_MOVE") & (client_ip == websocket.remote_address[0])):
+    if message.startswith("MOUSE_MOVE") and (client_ip == websocket.remote_address[0]):
         _, dx, dy = message.split(',')
         current_x, current_y = pyautogui.position()
         pyautogui.moveTo(current_x + float(dx), current_y + float(dy))
+    elif message.startswith("MOUSE_ABS") and (client_ip == websocket.remote_address[0]):
+        # Handle MOUSE_ABS command
+        parts = message.split(',')
+        if len(parts) == 3:
+            _, norm_x, norm_y = parts
+            screen_width, screen_height = pyautogui.size()
+            abs_x = float(norm_x) * screen_width
+            abs_y = float(norm_y) * screen_height
+            pyautogui.moveTo(abs_x, abs_y)
+    elif message.startswith("MOUSE_CLICK") and (client_ip == websocket.remote_address[0]):
+        # Handle MOUSE_CLICK command
+        parts = message.split(',')
+        if len(parts) == 3:
+            _, norm_x, norm_y = parts
+            screen_width, screen_height = pyautogui.size()
+            abs_x = float(norm_x) * screen_width
+            abs_y = float(norm_y) * screen_height
+            pyautogui.click(x=abs_x, y=abs_y)
+    elif message.startswith("MOUSE_CLICK_RIGHT") and (client_ip == websocket.remote_address[0]):
+        # Handle MOUSE_CLICK command
+        parts = message.split(',')
+        if len(parts) == 3:
+            _, norm_x, norm_y = parts
+            screen_width, screen_height = pyautogui.size()
+            abs_x = float(norm_x) * screen_width
+            abs_y = float(norm_y) * screen_height
+            pyautogui.click(x=abs_x, y=abs_y,button='right')
+    elif message.startswith("MOUSE_DOUBLE_CLICK") and (client_ip == websocket.remote_address[0]):
+        # Handle MOUSE_DOUBLE_CLICK command
+        parts = message.split(',')
+        if len(parts) == 3:
+            _, norm_x, norm_y = parts
+            screen_width, screen_height = pyautogui.size()
+            abs_x = float(norm_x) * screen_width
+            abs_y = float(norm_y) * screen_height
+            pyautogui.doubleClick(x=abs_x, y=abs_y)
+    elif message.startswith("SCROLL") and (client_ip == websocket.remote_address[0]):
+        # Handle SCROLL command
+        _, direction = message.split(',')
+        if direction == "UP":
+            pyautogui.scroll(100)  # Scroll up
+        elif direction == "DOWN":
+            pyautogui.scroll(-100)  # Scroll down
+
 
 async def handle_general_command(websocket, message):
     if(client_ip == websocket.remote_address[0]):
@@ -334,22 +417,20 @@ async def handle_general_command(websocket, message):
         else:
             pass
 
-async def main(current_conn):
-    general_server = await websockets.serve(lambda ws, path: handle_client(ws, path, current_conn), "0.0.0.0", 9999)
-    mouse_server = await websockets.serve(lambda ws, path: handle_client(ws, path, current_conn), "0.0.0.0", 9998)
-    app_list_server = await websockets.serve(lambda ws, path: handle_client(ws, path, current_conn), "0.0.0.0", 9997)
-    await asyncio.gather(general_server.wait_closed(), mouse_server.wait_closed(), app_list_server.wait_closed())
+
 
 
 def start_server(current_conn):
+    global broadcasting
+    broadcasting = True
     asyncio.run(main(current_conn))
 
 def start_server_thread(current_conn):
+    global broadcasting
+    broadcasting = True
     current_conn.config(text=f"Waiting for connection ...")
     server_thread = threading.Thread(target=start_server, args=(current_conn,))
     server_thread.start()
-    monitor_thread = threading.Thread(target=monitor_advertisement_windows)
-    monitor_thread.start()
 
 def stop_server():
     client_ip = None
@@ -360,21 +441,9 @@ def stop_server():
     loop.close()
     sys.exit()
 
-def qr_dis():
-    global qr_show
-    if(qr_show):
-        qr_code_label.place_forget()
-        qr_show = False
-        dsiplay_qr.config(text='Show QR')
-    else:
-        qr_code_label.place(x=450 , y=270)
-        qr_show = True
-        dsiplay_qr.config(text='Hide QR')
-
 
 if __name__ == "__main__":
     IP = socket.gethostbyname(socket.gethostname())
-    generate_qr_code(qr_session_tk,IP)
     root = Tk()
     menubar = Menu(root)
     homeFrame = Frame(root, height=600, width=800, bg="#19A7CE")
@@ -385,11 +454,6 @@ if __name__ == "__main__":
     current_conn = Label(homeFrame, height=2, width=40, bg="#3ABEF9", fg='#FFFFFF', text='START SERVER', font=('Arial', 15))
     pwd_lbl = Label(homeFrame, height=2 , width=15, bg="#3ABEF9", fg='#FFFFFF', text='Password', font=('Arial', 15))
     pwd_entry = Entry(homeFrame, width= 10 ,bg="#3ABEF9", fg='#FFFFFF',show='*',font=(15))
-    dsiplay_qr = Button(homeFrame, height=2, width=10, text="Hide QR", font=('Arial', 15), bg="#19A7CE", fg='#FFFFFF', activebackground='#F6F1F1', activeforeground='#19A7CE', command=qr_dis)
-    img = Image.open("qr_code.png")
-    photo_img = ImageTk.PhotoImage(img)
-    qr_code_label = Label(homeFrame, image=photo_img)
-
 
     yourIPAddr.place(x=10, y=10)
     startServerButton.place(x=320, y=10)
@@ -397,10 +461,7 @@ if __name__ == "__main__":
     current_conn.place(x=10, y=200)
     pwd_lbl.place(x = 10 , y = 130)
     pwd_entry.place(x  =320 , y = 130)
-    dsiplay_qr.place(x =10 , y = 270)
-    qr_code_label.place(x=450 , y=270)
     
-
     homeFrame.propagate(0)
     homeFrame.pack()
     root.protocol("WM_DELETE_WINDOW", stop_server)
