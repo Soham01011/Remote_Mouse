@@ -90,6 +90,8 @@ async def handle_client(websocket, path, current_conn, broadcast_task):
                 await handle_apps_command(websocket)
             elif path == "/screen_mirror":
                 await handle_screen_mirroring(websocket)
+            elif path == "/joystick":
+                await handle_joystick_command(websocket, message)
             else:
                 await handle_general_command(websocket, message)
         except Exception as e:
@@ -115,6 +117,55 @@ def get_running_apps():
         else:
             running_apps.append({"name": window})
     return running_apps
+
+async def handle_joystick_command(websocket, message):
+    try:
+        # Parse the incoming joystick data
+        data = json.loads(message)
+        print("Joystick data received:", data)
+
+        # Process joystick left and right movements
+        if 'joystick_left' in data:
+            joystick_left = data['joystick_left']
+            print(f"Joystick Left: X={joystick_left['x']}, Y={joystick_left['y']}")
+
+        if 'joystick_right' in data:
+            joystick_right = data['joystick_right']
+            print(f"Joystick Right: X={joystick_right['x']}, Y={joystick_right['y']}")
+
+        # Process D-Pad buttons (up, down, left, right)
+        if 'dpad_up' in data:
+            print(f"D-Pad Up: {data['dpad_up']}")
+
+        if 'dpad_down' in data:
+            print(f"D-Pad Down: {data['dpad_down']}")
+
+        if 'dpad_left' in data:
+            print(f"D-Pad Left: {data['dpad_left']}")
+
+        if 'dpad_right' in data:
+            print(f"D-Pad Right: {data['dpad_right']}")
+
+        # Process action buttons (A, B, X, Y)
+        if 'button_A' in data:
+            print(f"Button A: {data['button_A']}")
+
+        if 'button_B' in data:
+            print(f"Button B: {data['button_B']}")
+
+        if 'button_X' in data:
+            print(f"Button X: {data['button_X']}")
+
+        if 'button_Y' in data:
+            print(f"Button Y: {data['button_Y']}")
+
+        # Send a response back to the client (optional)
+        await websocket.send(json.dumps({"status": "success", "message": "Joystick data received"}))
+
+    except Exception as e:
+        print(f"Error processing joystick data: {e}")
+        await websocket.send(json.dumps({"status": "error", "message": "Failed to process joystick data"}))
+
 
 def focus_app(app_name, action):
     try:
