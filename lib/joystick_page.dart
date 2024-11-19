@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'seamless_page.dart';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
+import 'package:remote_mouse_v2/game_page.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
@@ -307,7 +308,16 @@ class _JoyStickPage extends State<JoystickPage> {
                   ),
             );
             },
-              icon: Icon(Icons.screenshot_monitor))
+              icon: Icon(Icons.screenshot_monitor)),
+          IconButton(onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => GamingModePage(ipAddress: widget.ipAddress),
+              ),
+            );
+          },
+              icon: Icon(Icons.control_camera))
         ],
       ),
       body: Center(

@@ -1,4 +1,4 @@
-# remotemouse_flutter
+# remote_mouse_v2
 
 A new Flutter project.
 
