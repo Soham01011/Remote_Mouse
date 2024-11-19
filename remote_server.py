@@ -3,26 +3,27 @@ from tkinter import *
 import asyncio
 import websockets
 import pyautogui
-import psutil
 import json
-import os
 import socket
 import threading
 import sys
 import time
 import pygetwindow as gw
-import subprocess
-import uuid
 import hashlib
-import qrcode
-from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
-from comtypes import CLSCTX_ALL
-from PIL import Image, ImageTk, ImageGrab
+import keyboard
+from PIL import ImageGrab
+import ctypes
+import cv2
+import numpy as np
 
 client_ip = None
 qr_show = True
 broadcasting = True
 connected_clients = set()
+current_pressed_keys = set()
+MOUSEEVENTF_MOVE = 0x0001
+MOUSEEVENTF_ABSOLUTE = 0x8000
+mouse_sen = 10
 
 
 async def main(current_conn):
@@ -92,10 +93,16 @@ async def handle_client(websocket, path, current_conn, broadcast_task):
                 await handle_screen_mirroring(websocket)
             elif path == "/joystick":
                 await handle_joystick_command(websocket, message)
+            elif path == "/mousemovement":
+                await handle_mousemovement_command(websocket, message)
+            elif path == "/buttonpress":
+                await handle_buttonpress_command(websocket, message)  # Handle the button press events
             else:
                 await handle_general_command(websocket, message)
         except Exception as e:
             print(f"Error handling command '{message}': {e}")
+            response = {"error": str(e)}
+            await websocket.send(json.dumps(response))  # Send error response if any error occurs
     else:
         await websocket.send(json.dumps({"status": "unauthorized"}))
 
@@ -118,54 +125,219 @@ def get_running_apps():
             running_apps.append({"name": window})
     return running_apps
 
-async def handle_joystick_command(websocket, message):
+
+def move_mouse(x, y, absolute=False):
+    """
+    Move the mouse pointer based on x and y coordinates.
+
+    :param x: X-axis movement or position.
+    :param y: Y-axis movement or position.
+    :param absolute: If True, moves to absolute coordinates; otherwise, moves relatively.
+    """
+    flags = MOUSEEVENTF_MOVE
+    if absolute:
+        flags |= MOUSEEVENTF_ABSOLUTE
+        # Convert x, y to absolute coordinates (0-65535 range)
+        screen_width = ctypes.windll.user32.GetSystemMetrics(0)
+        screen_height = ctypes.windll.user32.GetSystemMetrics(1)
+        x = int((x / screen_width) * 65535)
+        y = int((y / screen_height) * 65535)
+    ctypes.windll.user32.mouse_event(flags, x, y, 0, 0)
+
+async def handle_mousemovement_command(websocket, message):
+    """
+    Handles mouse movement commands (x, y) received from the client and moves the mouse accordingly.
+    Allows for dynamic sensitivity updates.
+    """
+    global mouse_sen, client_ip  # Declare the global variable to modify it inside the function
+
     try:
-        # Parse the incoming joystick data
+        # Ensure the command comes from the same client
+        if client_ip != websocket.remote_address[0]:
+            raise ConnectionError("Unauthorized client access detected.")
+
+        # Parse the incoming message
         data = json.loads(message)
-        print("Joystick data received:", data)
+        joystick_type = data.get("joystickType", "")
+        x = data.get("x", 0)
+        y = data.get("y", 0)
+        sensitivity = data.get("sensitivity", None)  # Check for a sensitivity update
 
-        # Process joystick left and right movements
-        if 'joystick_left' in data:
-            joystick_left = data['joystick_left']
-            print(f"Joystick Left: X={joystick_left['x']}, Y={joystick_left['y']}")
+        if sensitivity is not None:
+            # Update global sensitivity
+            try:
+                mouse_sen = float(sensitivity)
+                print(f"Mouse sensitivity updated to: {mouse_sen}")
 
-        if 'joystick_right' in data:
-            joystick_right = data['joystick_right']
-            print(f"Joystick Right: X={joystick_right['x']}, Y={joystick_right['y']}")
+                # Send acknowledgment for sensitivity update
+                response = {"status": "success", "action": "update_sensitivity", "sensitivity": mouse_sen}
+                await websocket.send(json.dumps(response))
+                return  # No need to process further if this was only a sensitivity update
+            except ValueError:
+                print("Invalid sensitivity value received")
+                response = {"error": "Invalid sensitivity value"}
+                await websocket.send(json.dumps(response))
+                return
 
-        # Process D-Pad buttons (up, down, left, right)
-        if 'dpad_up' in data:
-            print(f"D-Pad Up: {data['dpad_up']}")
+        if joystick_type == "Mouse":
+            # Scale mouse movement with the global sensitivity value
+            adjusted_x = int(x * mouse_sen)
+            adjusted_y = int(y * mouse_sen)
 
-        if 'dpad_down' in data:
-            print(f"D-Pad Down: {data['dpad_down']}")
+            # Perform the mouse movement
+            move_mouse(adjusted_x, adjusted_y)  # Replace pyautogui.move() with move_mouse
+            print(f"Mouse moved: x={adjusted_x}, y={adjusted_y}")
 
-        if 'dpad_left' in data:
-            print(f"D-Pad Left: {data['dpad_left']}")
+            # Send acknowledgment to the client
+            response = {"status": "success", "action": "mouse_movement", "x": adjusted_x, "y": adjusted_y}
+            await websocket.send(json.dumps(response))
+        else:
+            print("Unknown joystick type received")
+            response = {"error": "Unknown joystick type"}
+            await websocket.send(json.dumps(response))
 
-        if 'dpad_right' in data:
-            print(f"D-Pad Right: {data['dpad_right']}")
+    except json.JSONDecodeError:
+        print("Invalid JSON data received for mouse movement")
+        response = {"error": "Invalid JSON data"}
+        await websocket.send(json.dumps(response))
+    except Exception as e:
+        print(f"Error handling mouse movement: {e}")
+        response = {"error": str(e)}
+        await websocket.send(json.dumps(response))
 
-        # Process action buttons (A, B, X, Y)
-        if 'button_A' in data:
-            print(f"Button A: {data['button_A']}")
+async def handle_joystick_command(websocket, message):
+    """
+    Handles joystick commands (WASD directions) received from the client.
+    Sends corresponding keyboard inputs using the keyboard module and keeps the keys pressed as long as the joystick is in a direction.
+    """
+    global current_pressed_keys,client_ip
+    if(client_ip != websocket.remote_address[0]):
+        return ConnectionError
 
-        if 'button_B' in data:
-            print(f"Button B: {data['button_B']}")
+    try:
+        data = json.loads(message)  # Parse the incoming message
+        joystick_type = data.get("joystickType", "")
+        direction = data.get("direction", "")
 
-        if 'button_X' in data:
-            print(f"Button X: {data['button_X']}")
+        # Release all keys if no direction is specified
+        if not direction:
+            # Release all pressed keys and reset the set of pressed keys
+            for key in current_pressed_keys:
+                keyboard.release(key)
+            current_pressed_keys.clear()
+            print("Joystick released - No direction")
+            return
 
-        if 'button_Y' in data:
-            print(f"Button Y: {data['button_Y']}")
+        # Handle WASD commands
+        if joystick_type == "WASD":
+            # Create a set of the current direction keys to be pressed
+            direction_keys = set()
 
-        # Send a response back to the client (optional)
-        await websocket.send(json.dumps({"status": "success", "message": "Joystick data received"}))
+            if 'w' in direction.lower():
+                direction_keys.add('w')
+            if 'a' in direction.lower():
+                direction_keys.add('a')
+            if 's' in direction.lower():
+                direction_keys.add('s')
+            if 'd' in direction.lower():
+                direction_keys.add('d')
+
+            # Find keys that need to be pressed
+            keys_to_press = direction_keys - current_pressed_keys
+            # Find keys that need to be released
+            keys_to_release = current_pressed_keys - direction_keys
+
+            # Press keys that are not yet pressed
+            for key in keys_to_press:
+                keyboard.press(key)
+                current_pressed_keys.add(key)
+                print(f"Pressed key: {key}")
+
+            # Release keys that are no longer needed
+            for key in keys_to_release:
+                keyboard.release(key)
+                current_pressed_keys.remove(key)
+                print(f"Released key: {key}")
+
+            print(f"Joystick direction: {direction}")
+
+    except json.JSONDecodeError:
+        print("Invalid JSON data received for joystick command")
+        await websocket.send(json.dumps({"error": "Invalid JSON data"}))
+    except Exception as e:
+        print(f"Error handling joystick command: {e}")
+        await websocket.send(json.dumps({"error": str(e)}))
+
+async def handle_buttonpress_command(websocket, message):
+    global client_ip
+    if(client_ip != websocket.remote_address[0]):
+        return ConnectionError
+    try:
+        # Parse the incoming message
+        data = json.loads(message)
+        button = data.get("button")
+        state = data.get("state")
+
+        if button and state:
+            # Handle the left mouse button
+            if button == "left":
+                if state == "pressed":
+                    # Simulate a single-click: press down and immediately release
+                    pyautogui.mouseDown(button='left')
+                    pyautogui.mouseUp(button='left')
+                    print("Left mouse button pressed (single-click)")
+                elif state == "held":
+                    # Simulate holding down the left mouse button
+                    pyautogui.mouseDown(button='left')
+                    print("Left mouse button held down")
+                elif state == "released":
+                    # Simulate releasing the left mouse button
+                    pyautogui.mouseUp(button='left')
+                    print("Left mouse button released")
+                else:
+                    print("Unknown state for left mouse button")
+
+            # Handle the right mouse button
+            elif button == "right":
+                if state == "pressed":
+                    # Simulate a single-click: press down and immediately release
+                    pyautogui.mouseDown(button='right')
+                    pyautogui.mouseUp(button='right')
+                    print("Right mouse button pressed (single-click)")
+                elif state == "held":
+                    # Simulate holding down the right mouse button
+                    pyautogui.mouseDown(button='right')
+                    print("Right mouse button held down")
+                elif state == "released":
+                    # Simulate releasing the right mouse button
+                    pyautogui.mouseUp(button='right')
+                    print("Right mouse button released")
+                else:
+                    print("Unknown state for right mouse button")
+
+            # Handle keyboard input (button press, hold, release)
+            elif button:  # For any key (letters, numbers, symbols, modifier keys)
+                if state == "pressed":
+                    keyboard.press(button)  # Simulate key press
+                    time.sleep(0.05)
+                    keyboard.release(button)
+                    print(f"Key {button} pressed")
+                elif state == "released":
+                    keyboard.release(button)  # Simulate key release
+                    print(f"Key {button} released")
+                elif state == "held":
+                    keyboard.press(button)
+                    print(f"Key {button} held")  # In case you want to track if the key is still pressed (no direct handling needed)
+                else:
+                    print(f"Unknown state for key {button}")
+            else:
+                print(f"Unknown button: {button}")
+
+        else:
+            print("Invalid data received for button press")
 
     except Exception as e:
-        print(f"Error processing joystick data: {e}")
-        await websocket.send(json.dumps({"status": "error", "message": "Failed to process joystick data"}))
-
+        print(f"Error processing button press: {e}")
 
 def focus_app(app_name, action):
     try:
@@ -307,89 +479,93 @@ def handle_webbrowser_command(command):
     else:
         pass
 
+def get_abs_coordinates(norm_x, norm_y):
+    screen_width, screen_height = pyautogui.size()
+    abs_x = max(0, min(float(norm_x) * screen_width, screen_width - 1))
+    abs_y = max(0, min(float(norm_y) * screen_height, screen_height - 1))
+    return abs_x, abs_y
+
+# Handle screen mirroring
 async def handle_screen_mirroring(websocket):
-    """Capture screen and send images continuously for screen mirroring."""
-    connected_clients.add(websocket)
+    """Stream screen live feed continuously for connected clients."""
+    previous_resolution = None  # To track the last sent resolution
+
     try:
-        previous_hash = None
         while True:
             # Capture the screen
-            screen = ImageGrab.grab()
-            buffered = io.BytesIO()
-            screen.save(buffered, format="JPEG")
-            img_bytes = buffered.getvalue()
+            screen = ImageGrab.grab()  # Captures the screen
+            screen_np = np.array(screen)  # Convert to NumPy array
+            frame = cv2.cvtColor(screen_np, cv2.COLOR_RGB2BGR)  # Convert RGB to BGR for encoding
 
-            # Create a hash to check if the image is different from the last one
-            current_hash = hashlib.md5(img_bytes).hexdigest()
+            # Get the screen resolution
+            current_resolution = (frame.shape[1], frame.shape[0])  # Width, Height
 
-            if current_hash != previous_hash:
-                # Only send the image if it's different from the last one
-                await websocket.send(img_bytes)
-                previous_hash = current_hash
+            # Send the resolution if it has changed
+            if current_resolution != previous_resolution:
+                resolution_message = f"RESOLUTION,{current_resolution[0]},{current_resolution[1]}"
+                await websocket.send(resolution_message)
+                previous_resolution = current_resolution
 
-            # Send a ping to keep the connection alive
-            try:
-                await websocket.ping()
-            except Exception as e:
-                print(f"Error in sending ping: {e}")
+            # Encode the frame as JPEG
+            success, jpeg_frame = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 75])  # Adjust quality for bandwidth
+            if not success:
+                print("Failed to encode frame.")
+                continue
 
-            # Adjust based on performance (throttling the update rate)
-            await asyncio.sleep(0.1)
+            # Get the binary data
+            img_bytes = jpeg_frame.tobytes()
+
+            # Send the JPEG frame as binary data to the client
+            await websocket.send(img_bytes)
+
+            # Throttle to control frame rate (e.g., 30 FPS)
+            await asyncio.sleep(0.033)  # Approx. 30 frames per second
 
     except websockets.ConnectionClosed:
-        print("Screen mirroring stopped.")
+        print("Screen mirroring client disconnected.")
+    except Exception as e:
+        print(f"Error in screen mirroring: {e}")
     finally:
         connected_clients.remove(websocket)
-           
-async def handle_mouse_command(websocket, message):
-    if message.startswith("MOUSE_MOVE") and (client_ip == websocket.remote_address[0]):
-        _, dx, dy = message.split(',')
-        current_x, current_y = pyautogui.position()
-        pyautogui.moveTo(current_x + float(dx), current_y + float(dy))
-    elif message.startswith("MOUSE_ABS") and (client_ip == websocket.remote_address[0]):
-        # Handle MOUSE_ABS command
-        parts = message.split(',')
-        if len(parts) == 3:
-            _, norm_x, norm_y = parts
-            screen_width, screen_height = pyautogui.size()
-            abs_x = float(norm_x) * screen_width
-            abs_y = float(norm_y) * screen_height
-            pyautogui.moveTo(abs_x, abs_y)
-    elif message.startswith("MOUSE_CLICK") and (client_ip == websocket.remote_address[0]):
-        # Handle MOUSE_CLICK command
-        parts = message.split(',')
-        if len(parts) == 3:
-            _, norm_x, norm_y = parts
-            screen_width, screen_height = pyautogui.size()
-            abs_x = float(norm_x) * screen_width
-            abs_y = float(norm_y) * screen_height
-            pyautogui.click(x=abs_x, y=abs_y)
-    elif message.startswith("MOUSE_CLICK_RIGHT") and (client_ip == websocket.remote_address[0]):
-        # Handle MOUSE_CLICK command
-        parts = message.split(',')
-        if len(parts) == 3:
-            _, norm_x, norm_y = parts
-            screen_width, screen_height = pyautogui.size()
-            abs_x = float(norm_x) * screen_width
-            abs_y = float(norm_y) * screen_height
-            pyautogui.click(x=abs_x, y=abs_y,button='right')
-    elif message.startswith("MOUSE_DOUBLE_CLICK") and (client_ip == websocket.remote_address[0]):
-        # Handle MOUSE_DOUBLE_CLICK command
-        parts = message.split(',')
-        if len(parts) == 3:
-            _, norm_x, norm_y = parts
-            screen_width, screen_height = pyautogui.size()
-            abs_x = float(norm_x) * screen_width
-            abs_y = float(norm_y) * screen_height
-            pyautogui.doubleClick(x=abs_x, y=abs_y)
-    elif message.startswith("SCROLL") and (client_ip == websocket.remote_address[0]):
-        # Handle SCROLL command
-        _, direction = message.split(',')
-        if direction == "UP":
-            pyautogui.scroll(100)  # Scroll up
-        elif direction == "DOWN":
-            pyautogui.scroll(-100)  # Scroll down
 
+
+async def handle_mouse_command(websocket, message):
+    global client_ip
+    try:
+        if message.startswith("MOUSE_MOVE") and (client_ip == websocket.remote_address[0]):
+            _, dx, dy = message.split(',')
+            current_x, current_y = pyautogui.position()
+            pyautogui.moveTo(current_x + float(dx), current_y + float(dy))
+
+        elif message.startswith("MOUSE_ABS") and (client_ip == websocket.remote_address[0]):
+            _, norm_x, norm_y = message.split(',')
+            abs_x, abs_y = get_abs_coordinates(norm_x, norm_y)
+            pyautogui.moveTo(abs_x, abs_y)
+
+        elif message.startswith("MOUSE_CLICK") and (client_ip == websocket.remote_address[0]):
+            _, norm_x, norm_y = message.split(',')
+            abs_x, abs_y = get_abs_coordinates(norm_x, norm_y)
+            pyautogui.click(x=abs_x, y=abs_y)
+
+        elif message.startswith("MOUSE_CLICK_RIGHT") and (client_ip == websocket.remote_address[0]):
+            _, norm_x, norm_y = message.split(',')
+            abs_x, abs_y = get_abs_coordinates(norm_x, norm_y)
+            pyautogui.click(x=abs_x, y=abs_y, button='right')
+
+        elif message.startswith("MOUSE_DOUBLE_CLICK") and (client_ip == websocket.remote_address[0]):
+            _, norm_x, norm_y = message.split(',')
+            abs_x, abs_y = get_abs_coordinates(norm_x, norm_y)
+            pyautogui.doubleClick(x=abs_x, y=abs_y)
+
+        elif message.startswith("SCROLL") and (client_ip == websocket.remote_address[0]):
+            _, direction = message.split(',')
+            if direction == "UP":
+                pyautogui.scroll(100)  # Scroll up
+            elif direction == "DOWN":
+                pyautogui.scroll(-100)  # Scroll down
+
+    except Exception as e:
+        print(f"Error handling mouse command: {e}")
 
 async def handle_general_command(websocket, message):
     if(client_ip == websocket.remote_address[0]):
@@ -484,12 +660,6 @@ def start_server_thread(current_conn):
     server_thread.start()
 
 def stop_server():
-    client_ip = None
-    loop = asyncio.get_event_loop()
-    for task in asyncio.all_tasks(loop=loop):
-        task.cancel()
-    loop.stop()
-    loop.close()
     sys.exit()
 
 

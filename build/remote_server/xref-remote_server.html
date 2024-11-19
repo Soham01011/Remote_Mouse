@@ -170,9 +170,7 @@ imported by:
 <span class="moduletype">Script</span>  <div class="import">
 imports:
     <a href="#PIL">PIL</a>
- &#8226;   <a href="#PIL.Image">PIL.Image</a>
  &#8226;   <a href="#PIL.ImageGrab">PIL.ImageGrab</a>
- &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
  &#8226;   <a href="#_collections_abc">_collections_abc</a>
  &#8226;   <a href="#_weakrefset">_weakrefset</a>
  &#8226;   <a href="#abc">abc</a>
@@ -180,8 +178,9 @@ imports:
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#collections.abc">collections.abc</a>
- &#8226;   <a href="#comtypes">comtypes</a>
  &#8226;   <a href="#copyreg">copyreg</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#cv2">cv2</a>
  &#8226;   <a href="#encodings">encodings</a>
  &#8226;   <a href="#encodings.aliases">encodings.aliases</a>
  &#8226;   <a href="#encodings.ascii">encodings.ascii</a>
@@ -311,16 +310,16 @@ imports:
  &#8226;   <a href="#heapq">heapq</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#json">json</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
  &#8226;   <a href="#keyword">keyword</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#ntpath">ntpath</a>
+ &#8226;   <a href="#numpy">numpy</a>
  &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#posixpath">posixpath</a>
- &#8226;   <a href="#psutil">psutil</a>
  &#8226;   <a href="#pyautogui">pyautogui</a>
- &#8226;   <a href="#pycaw.pycaw">pycaw.pycaw</a>
  &#8226;   <a href="#pygetwindow">pygetwindow</a>
  &#8226;   <a href="#pyi_rth__tkinter.py">pyi_rth__tkinter.py</a>
  &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
@@ -330,7 +329,6 @@ imports:
  &#8226;   <a href="#pyi_rth_pythoncom.py">pyi_rth_pythoncom.py</a>
  &#8226;   <a href="#pyi_rth_pywintypes.py">pyi_rth_pywintypes.py</a>
  &#8226;   <a href="#pyi_rth_setuptools.py">pyi_rth_setuptools.py</a>
- &#8226;   <a href="#qrcode">qrcode</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#re._casefix">re._casefix</a>
  &#8226;   <a href="#re._compiler">re._compiler</a>
@@ -342,14 +340,12 @@ imports:
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#stat">stat</a>
- &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#time">time</a>
  &#8226;   <a href="#tkinter">tkinter</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
- &#8226;   <a href="#uuid">uuid</a>
  &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#weakref">weakref</a>
  &#8226;   <a href="#websockets">websockets</a>
@@ -598,7 +594,8 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>AppKit</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pyautogui._pyautogui_osx">pyautogui._pyautogui_osx</a>
+    <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#pyautogui._pyautogui_osx">pyautogui._pyautogui_osx</a>
  &#8226;   <a href="#pyperclip">pyperclip</a>
 
   </div>
@@ -611,28 +608,6 @@ imported by:
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
     <a href="#pyperclip">pyperclip</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="Image"></a>
-  <a target="code" href="" type="text/plain"><tt>Image</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="ImageDraw"></a>
-  <a target="code" href="" type="text/plain"><tt>ImageDraw</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
 
   </div>
 
@@ -781,7 +756,6 @@ imported by:
  &#8226;   <a href="#PIL.features">PIL.features</a>
  &#8226;   <a href="#mouseinfo">mouseinfo</a>
  &#8226;   <a href="#pyscreeze">pyscreeze</a>
- &#8226;   <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
  &#8226;   <a href="#remote_server.py">remote_server.py</a>
 
   </div>
@@ -1415,8 +1389,6 @@ imported by:
  &#8226;   <a href="#PIL.features">PIL.features</a>
  &#8226;   <a href="#mouseinfo">mouseinfo</a>
  &#8226;   <a href="#pyscreeze">pyscreeze</a>
- &#8226;   <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
- &#8226;   <a href="#remote_server.py">remote_server.py</a>
 
   </div>
 
@@ -1514,7 +1486,6 @@ imported by:
     <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.ImageDraw2">PIL.ImageDraw2</a>
  &#8226;   <a href="#pyscreeze">pyscreeze</a>
- &#8226;   <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
 
   </div>
 
@@ -1902,7 +1873,6 @@ imports:
 imported by:
     <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.SpiderImagePlugin">PIL.SpiderImagePlugin</a>
- &#8226;   <a href="#remote_server.py">remote_server.py</a>
 
   </div>
 
@@ -2980,8 +2950,22 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>Quartz</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pyautogui._pyautogui_osx">pyautogui._pyautogui_osx</a>
+    <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#pyautogui._pyautogui_osx">pyautogui._pyautogui_osx</a>
  &#8226;   <a href="#pygetwindow._pygetwindow_macos">pygetwindow._pygetwindow_macos</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="Queue"></a>
+  <a target="code" href="" type="text/plain"><tt>Queue</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._generic">keyboard._generic</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
 
   </div>
 
@@ -3098,9 +3082,10 @@ imported by:
  &#8226;   <a href="#PIL._version">PIL._version</a>
  &#8226;   <a href="#PIL.features">PIL.features</a>
  &#8226;   <a href="#codeop">codeop</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
  &#8226;   <a href="#doctest">doctest</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._canonical_names">keyboard._canonical_names</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
  &#8226;   <a href="#numpy._typing">numpy._typing</a>
  &#8226;   <a href="#numpy._typing._array_like">numpy._typing._array_like</a>
  &#8226;   <a href="#numpy._typing._nested_sequence">numpy._typing._nested_sequence</a>
@@ -3122,10 +3107,6 @@ imported by:
  &#8226;   <a href="#pyautogui">pyautogui</a>
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#pytweening">pytweening</a>
- &#8226;   <a href="#qrcode.image.styledpil">qrcode.image.styledpil</a>
- &#8226;   <a href="#qrcode.image.styles.colormasks">qrcode.image.styles.colormasks</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.base">qrcode.image.styles.moduledrawers.base</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.pil">qrcode.image.styles.moduledrawers.pil</a>
  &#8226;   <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
  &#8226;   <a href="#setuptools._vendor.tomli._re">setuptools._vendor.tomli._re</a>
  &#8226;   <a href="#websockets">websockets</a>
@@ -3459,14 +3440,9 @@ imported by:
   <a name="_ctypes"></a>
   <tt>_ctypes</tt> <span class="moduletype"><tt>C:\Users\abc\AppData\Local\Programs\Python\Python311\DLLs\_ctypes.pyd</tt></span>  <div class="import">
 imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#ctypes">ctypes</a>
+    <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#ctypes.macholib.dyld">ctypes.macholib.dyld</a>
  &#8226;   <a href="#numpy.core._dtype_ctypes">numpy.core._dtype_ctypes</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
 
   </div>
 
@@ -4297,7 +4273,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#_collections_abc">_collections_abc</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.typeannotator">comtypes.tools.codegenerator.typeannotator</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#email._policybase">email._policybase</a>
@@ -4319,8 +4294,6 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.packaging.specifiers">pkg_resources._vendor.packaging.specifiers</a>
  &#8226;   <a href="#pkg_resources._vendor.pyparsing.core">pkg_resources._vendor.pyparsing.core</a>
  &#8226;   <a href="#pyparsing.core">pyparsing.core</a>
- &#8226;   <a href="#qrcode.image.base">qrcode.image.base</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.base">qrcode.image.styles.moduledrawers.base</a>
  &#8226;   <a href="#remote_server.py">remote_server.py</a>
  &#8226;   <a href="#selectors">selectors</a>
  &#8226;   <a href="#setuptools._vendor.importlib_metadata">setuptools._vendor.importlib_metadata</a>
@@ -4382,13 +4355,10 @@ imported by:
 imported by:
     <a href="#PIL.ImagePalette">PIL.ImagePalette</a>
  &#8226;   <a href="#PIL.JpegImagePlugin">PIL.JpegImagePlugin</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
  &#8226;   <a href="#multiprocessing.dummy">multiprocessing.dummy</a>
  &#8226;   <a href="#multiprocessing.managers">multiprocessing.managers</a>
  &#8226;   <a href="#multiprocessing.reduction">multiprocessing.reduction</a>
  &#8226;   <a href="#pkg_resources._vendor.appdirs">pkg_resources._vendor.appdirs</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#socket">socket</a>
 
   </div>
@@ -5375,7 +5345,8 @@ imported by:
   <tt>atexit</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
     <a href="#PIL.Image">PIL.Image</a>
- &#8226;   <a href="#comtypes">comtypes</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
  &#8226;   <a href="#rlcompleter">rlcompleter</a>
@@ -5482,7 +5453,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#multiprocessing.heap">multiprocessing.heap</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#statistics">statistics</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
@@ -6318,6 +6288,10 @@ imported by:
  &#8226;   <a href="#jinja2.sandbox">jinja2.sandbox</a>
  &#8226;   <a href="#jinja2.tests">jinja2.tests</a>
  &#8226;   <a href="#jinja2.utils">jinja2.utils</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
  &#8226;   <a href="#multiprocessing.heap">multiprocessing.heap</a>
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
  &#8226;   <a href="#multiprocessing.queues">multiprocessing.queues</a>
@@ -6335,7 +6309,6 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.zipp">pkg_resources._vendor.zipp</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#platform">platform</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#psutil">psutil</a>
  &#8226;   <a href="#psutil._common">psutil._common</a>
@@ -6514,1101 +6487,6 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imported by:
     <a href="#pywin.dialogs.list">pywin.dialogs.list</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/__init__.py" type="text/plain"><tt>comtypes</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#_ctypes">_ctypes</a>
- &#8226;   <a href="#atexit">atexit</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes._idl_stuff">comtypes._idl_stuff</a>
- &#8226;   <a href="#comtypes._meta">comtypes._meta</a>
- &#8226;   <a href="#comtypes._npsupport">comtypes._npsupport</a>
- &#8226;   <a href="#comtypes._post_coinit">comtypes._post_coinit</a>
- &#8226;   <a href="#comtypes._post_coinit.bstr">comtypes._post_coinit.bstr</a>
- &#8226;   <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes._py_instance_method">comtypes._py_instance_method</a>
- &#8226;   <a href="#comtypes._safearray">comtypes._safearray</a>
- &#8226;   <a href="#comtypes._tlib_version_checker">comtypes._tlib_version_checker</a>
- &#8226;   <a href="#comtypes.gen">comtypes.gen</a>
- &#8226;   <a href="#comtypes.messageloop">comtypes.messageloop</a>
- &#8226;   <a href="#comtypes.patcher">comtypes.patcher</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes._CData">ctypes._CData</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes._idl_stuff">comtypes._idl_stuff</a>
- &#8226;   <a href="#comtypes._memberspec">comtypes._memberspec</a>
- &#8226;   <a href="#comtypes._meta">comtypes._meta</a>
- &#8226;   <a href="#comtypes._npsupport">comtypes._npsupport</a>
- &#8226;   <a href="#comtypes._post_coinit">comtypes._post_coinit</a>
- &#8226;   <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes._py_instance_method">comtypes._py_instance_method</a>
- &#8226;   <a href="#comtypes._safearray">comtypes._safearray</a>
- &#8226;   <a href="#comtypes._tlib_version_checker">comtypes._tlib_version_checker</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.client._constants">comtypes.client._constants</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
- &#8226;   <a href="#comtypes.client.lazybind">comtypes.client.lazybind</a>
- &#8226;   <a href="#comtypes.connectionpoints">comtypes.connectionpoints</a>
- &#8226;   <a href="#comtypes.errorinfo">comtypes.errorinfo</a>
- &#8226;   <a href="#comtypes.gen">comtypes.gen</a>
- &#8226;   <a href="#comtypes.hresult">comtypes.hresult</a>
- &#8226;   <a href="#comtypes.messageloop">comtypes.messageloop</a>
- &#8226;   <a href="#comtypes.patcher">comtypes.patcher</a>
- &#8226;   <a href="#comtypes.persist">comtypes.persist</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
- &#8226;   <a href="#comtypes.server">comtypes.server</a>
- &#8226;   <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.helpers">comtypes.tools.codegenerator.helpers</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.modulenamer">comtypes.tools.codegenerator.modulenamer</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.typeannotator">comtypes.tools.codegenerator.typeannotator</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
- &#8226;   <a href="#comtypes.tools.typedesc_base">comtypes.tools.typedesc_base</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
- &#8226;   <a href="#pycaw.api.audiopolicy">pycaw.api.audiopolicy</a>
- &#8226;   <a href="#pycaw.api.endpointvolume">pycaw.api.endpointvolume</a>
- &#8226;   <a href="#pycaw.api.endpointvolume.depend">pycaw.api.endpointvolume.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi">pycaw.api.mmdeviceapi</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend">pycaw.api.mmdeviceapi.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend.structures">pycaw.api.mmdeviceapi.depend.structures</a>
- &#8226;   <a href="#pycaw.constants">pycaw.constants</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
- &#8226;   <a href="#remote_server.py">remote_server.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.GUID"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/GUID.py" type="text/plain"><tt>comtypes.GUID</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes._safearray">comtypes._safearray</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
- &#8226;   <a href="#comtypes.connectionpoints">comtypes.connectionpoints</a>
- &#8226;   <a href="#comtypes.errorinfo">comtypes.errorinfo</a>
- &#8226;   <a href="#comtypes.persist">comtypes.persist</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
- &#8226;   <a href="#pycaw.api.audiopolicy">pycaw.api.audiopolicy</a>
- &#8226;   <a href="#pycaw.api.endpointvolume">pycaw.api.endpointvolume</a>
- &#8226;   <a href="#pycaw.api.endpointvolume.depend">pycaw.api.endpointvolume.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi">pycaw.api.mmdeviceapi</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend">pycaw.api.mmdeviceapi.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend.structures">pycaw.api.mmdeviceapi.depend.structures</a>
- &#8226;   <a href="#pycaw.constants">pycaw.constants</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._comobject"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_comobject.py" type="text/plain"><tt>comtypes._comobject</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#_ctypes">_ctypes</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._memberspec">comtypes._memberspec</a>
- &#8226;   <a href="#comtypes.errorinfo">comtypes.errorinfo</a>
- &#8226;   <a href="#comtypes.hresult">comtypes.hresult</a>
- &#8226;   <a href="#comtypes.messageloop">comtypes.messageloop</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#queue">queue</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#threading">threading</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._idl_stuff"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_idl_stuff.py" type="text/plain"><tt>comtypes._idl_stuff</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._memberspec">comtypes._memberspec</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._memberspec"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_memberspec.py" type="text/plain"><tt>comtypes._memberspec</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes._idl_stuff">comtypes._idl_stuff</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._meta"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_meta.py" type="text/plain"><tt>comtypes._meta</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#ctypes">ctypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._npsupport"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_npsupport.py" type="text/plain"><tt>comtypes._npsupport</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#numpy">numpy</a>
- &#8226;   <a href="#numpy.ctypeslib">numpy.ctypeslib</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._post_coinit"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_post_coinit/__init__.py" type="text/plain"><tt>comtypes._post_coinit</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._post_coinit.bstr">comtypes._post_coinit.bstr</a>
- &#8226;   <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._post_coinit.bstr"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_post_coinit/bstr.py" type="text/plain"><tt>comtypes._post_coinit.bstr</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes._post_coinit">comtypes._post_coinit</a>
- &#8226;   <a href="#ctypes">ctypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._post_coinit.misc"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_post_coinit/misc.py" type="text/plain"><tt>comtypes._post_coinit.misc</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes._idl_stuff">comtypes._idl_stuff</a>
- &#8226;   <a href="#comtypes._post_coinit">comtypes._post_coinit</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.server">comtypes.server</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._post_coinit.unknwn"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_post_coinit/unknwn.py" type="text/plain"><tt>comtypes._post_coinit.unknwn</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#_ctypes">_ctypes</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes._idl_stuff">comtypes._idl_stuff</a>
- &#8226;   <a href="#comtypes._memberspec">comtypes._memberspec</a>
- &#8226;   <a href="#comtypes._post_coinit">comtypes._post_coinit</a>
- &#8226;   <a href="#comtypes._py_instance_method">comtypes._py_instance_method</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.patcher">comtypes.patcher</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#types">types</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._post_coinit">comtypes._post_coinit</a>
- &#8226;   <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._py_instance_method"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_py_instance_method.py" type="text/plain"><tt>comtypes._py_instance_method</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#ctypes">ctypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._safearray"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_safearray.py" type="text/plain"><tt>comtypes._safearray</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes._tlib_version_checker"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/_tlib_version_checker.py" type="text/plain"><tt>comtypes._tlib_version_checker</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.automation"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/automation.py" type="text/plain"><tt>comtypes.automation</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#_ctypes">_ctypes</a>
- &#8226;   <a href="#array">array</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes._memberspec">comtypes._memberspec</a>
- &#8226;   <a href="#comtypes._safearray">comtypes._safearray</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
- &#8226;   <a href="#comtypes.hresult">comtypes.hresult</a>
- &#8226;   <a href="#comtypes.patcher">comtypes.patcher</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#datetime">datetime</a>
- &#8226;   <a href="#decimal">decimal</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes._memberspec">comtypes._memberspec</a>
- &#8226;   <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._constants">comtypes.client._constants</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
- &#8226;   <a href="#comtypes.client.lazybind">comtypes.client.lazybind</a>
- &#8226;   <a href="#comtypes.persist">comtypes.persist</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend.structures">pycaw.api.mmdeviceapi.depend.structures</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.client"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/client/__init__.py" type="text/plain"><tt>comtypes.client</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.client._constants">comtypes.client._constants</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
- &#8226;   <a href="#comtypes.client.lazybind">comtypes.client.lazybind</a>
- &#8226;   <a href="#comtypes.gen">comtypes.gen</a>
- &#8226;   <a href="#comtypes.hresult">comtypes.hresult</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.client._constants">comtypes.client._constants</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
- &#8226;   <a href="#comtypes.client.lazybind">comtypes.client.lazybind</a>
- &#8226;   <a href="#comtypes.server">comtypes.server</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.client._code_cache"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/client/_code_cache.py" type="text/plain"><tt>comtypes.client._code_cache</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.gen">comtypes.gen</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#tempfile">tempfile</a>
- &#8226;   <a href="#types">types</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.client._constants"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/client/_constants.py" type="text/plain"><tt>comtypes.client._constants</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#keyword">keyword</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.client">comtypes.client</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.client._events"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/client/_events.py" type="text/plain"><tt>comtypes.client._events</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.connectionpoints">comtypes.connectionpoints</a>
- &#8226;   <a href="#comtypes.hresult">comtypes.hresult</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#traceback">traceback</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.client">comtypes.client</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.client._generate"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/client/_generate.py" type="text/plain"><tt>comtypes.client._generate</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.gen">comtypes.gen</a>
- &#8226;   <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#importlib">importlib</a>
- &#8226;   <a href="#inspect">inspect</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#types">types</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#winreg">winreg</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.client.dynamic"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/client/dynamic.py" type="text/plain"><tt>comtypes.client.dynamic</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client.lazybind">comtypes.client.lazybind</a>
- &#8226;   <a href="#comtypes.hresult">comtypes.hresult</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.client.lazybind"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/client/lazybind.py" type="text/plain"><tt>comtypes.client.lazybind</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.connectionpoints"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/connectionpoints.py" type="text/plain"><tt>comtypes.connectionpoints</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.client._events">comtypes.client._events</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.errorinfo"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/errorinfo.py" type="text/plain"><tt>comtypes.errorinfo</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes.hresult">comtypes.hresult</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes._comobject">comtypes._comobject</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.gen"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/gen/__init__.py" type="text/plain"><tt>comtypes.gen</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.hresult"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/hresult.py" type="text/plain"><tt>comtypes.hresult</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#ctypes">ctypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
- &#8226;   <a href="#comtypes.errorinfo">comtypes.errorinfo</a>
- &#8226;   <a href="#comtypes.persist">comtypes.persist</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.messageloop"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/messageloop.py" type="text/plain"><tt>comtypes.messageloop</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.patcher"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/patcher.py" type="text/plain"><tt>comtypes.patcher</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.persist"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/persist.py" type="text/plain"><tt>comtypes.persist</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.hresult">comtypes.hresult</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.safearray"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/safearray.py" type="text/plain"><tt>comtypes.safearray</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#array">array</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._safearray">comtypes._safearray</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.patcher">comtypes.patcher</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#threading">threading</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.automation">comtypes.automation</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.server"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/server/__init__.py" type="text/plain"><tt>comtypes.server</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#ctypes">ctypes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/__init__.py" type="text/plain"><tt>comtypes.tools</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.helpers">comtypes.tools.codegenerator.helpers</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.packing">comtypes.tools.codegenerator.packing</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.typeannotator">comtypes.tools.codegenerator.typeannotator</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
- &#8226;   <a href="#comtypes.tools.typedesc_base">comtypes.tools.typedesc_base</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.codegenerator"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/codegenerator/__init__.py" type="text/plain"><tt>comtypes.tools.codegenerator</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.modulenamer">comtypes.tools.codegenerator.modulenamer</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.namespaces">comtypes.tools.codegenerator.namespaces</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.packing">comtypes.tools.codegenerator.packing</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.typeannotator">comtypes.tools.codegenerator.typeannotator</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes._tlib_version_checker">comtypes._tlib_version_checker</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.helpers">comtypes.tools.codegenerator.helpers</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.modulenamer">comtypes.tools.codegenerator.modulenamer</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.namespaces">comtypes.tools.codegenerator.namespaces</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.packing">comtypes.tools.codegenerator.packing</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.typeannotator">comtypes.tools.codegenerator.typeannotator</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.codegenerator.codegenerator"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/codegenerator/codegenerator.py" type="text/plain"><tt>comtypes.tools.codegenerator.codegenerator</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.helpers">comtypes.tools.codegenerator.helpers</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.modulenamer">comtypes.tools.codegenerator.modulenamer</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.namespaces">comtypes.tools.codegenerator.namespaces</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.packing">comtypes.tools.codegenerator.packing</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.typeannotator">comtypes.tools.codegenerator.typeannotator</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#io">io</a>
- &#8226;   <a href="#keyword">keyword</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#textwrap">textwrap</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#warnings">warnings</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.codegenerator.helpers"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/codegenerator/helpers.py" type="text/plain"><tt>comtypes.tools.codegenerator.helpers</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.modulenamer">comtypes.tools.codegenerator.modulenamer</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
- &#8226;   <a href="#keyword">keyword</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.codegenerator.modulenamer"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/codegenerator/modulenamer.py" type="text/plain"><tt>comtypes.tools.codegenerator.modulenamer</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.helpers">comtypes.tools.codegenerator.helpers</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.codegenerator.namespaces"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/codegenerator/namespaces.py" type="text/plain"><tt>comtypes.tools.codegenerator.namespaces</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#textwrap">textwrap</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.codegenerator.packing"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/codegenerator/packing.py" type="text/plain"><tt>comtypes.tools.codegenerator.packing</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.codegenerator.typeannotator"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/codegenerator/typeannotator.py" type="text/plain"><tt>comtypes.tools.codegenerator.typeannotator</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#abc">abc</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
- &#8226;   <a href="#keyword">keyword</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.tools.codegenerator">comtypes.tools.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.tlbparser"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/tlbparser.py" type="text/plain"><tt>comtypes.tools.tlbparser</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.persist">comtypes.persist</a>
- &#8226;   <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#warnings">warnings</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.typedesc"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/typedesc.py" type="text/plain"><tt>comtypes.tools.typedesc</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.typedesc_base">comtypes.tools.typedesc_base</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.helpers">comtypes.tools.codegenerator.helpers</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.packing">comtypes.tools.codegenerator.packing</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.typeannotator">comtypes.tools.codegenerator.typeannotator</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.tools.typedesc_base"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/tools/typedesc_base.py" type="text/plain"><tt>comtypes.tools.typedesc_base</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.tools">comtypes.tools</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="comtypes.typeinfo"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/comtypes/typeinfo.py" type="text/plain"><tt>comtypes.typeinfo</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#weakref">weakref</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._constants">comtypes.client._constants</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.client.lazybind">comtypes.client.lazybind</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
 
   </div>
 
@@ -7955,7 +6833,6 @@ imported by:
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#_ctypes">_ctypes</a>
- &#8226;   <a href="#ctypes._CData">ctypes._CData</a>
  &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
  &#8226;   <a href="#nt">nt</a>
  &#8226;   <a href="#os">os</a>
@@ -7966,37 +6843,13 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes._memberspec">comtypes._memberspec</a>
- &#8226;   <a href="#comtypes._meta">comtypes._meta</a>
- &#8226;   <a href="#comtypes._post_coinit.bstr">comtypes._post_coinit.bstr</a>
- &#8226;   <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes._py_instance_method">comtypes._py_instance_method</a>
- &#8226;   <a href="#comtypes._safearray">comtypes._safearray</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
- &#8226;   <a href="#comtypes.connectionpoints">comtypes.connectionpoints</a>
- &#8226;   <a href="#comtypes.errorinfo">comtypes.errorinfo</a>
- &#8226;   <a href="#comtypes.hresult">comtypes.hresult</a>
- &#8226;   <a href="#comtypes.messageloop">comtypes.messageloop</a>
- &#8226;   <a href="#comtypes.persist">comtypes.persist</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
- &#8226;   <a href="#comtypes.server">comtypes.server</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
- &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
+    <a href="#ctypes._aix">ctypes._aix</a>
  &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
  &#8226;   <a href="#ctypes.macholib">ctypes.macholib</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
+ &#8226;   <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
  &#8226;   <a href="#mouseinfo">mouseinfo</a>
  &#8226;   <a href="#multiprocessing.sharedctypes">multiprocessing.sharedctypes</a>
  &#8226;   <a href="#numpy.core._dtype_ctypes">numpy.core._dtype_ctypes</a>
@@ -8007,34 +6860,15 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.packaging._manylinux">pkg_resources._vendor.packaging._manylinux</a>
  &#8226;   <a href="#psutil._common">psutil._common</a>
  &#8226;   <a href="#pyautogui._pyautogui_win">pyautogui._pyautogui_win</a>
- &#8226;   <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
- &#8226;   <a href="#pycaw.api.audioclient.depend">pycaw.api.audioclient.depend</a>
- &#8226;   <a href="#pycaw.api.audiopolicy">pycaw.api.audiopolicy</a>
- &#8226;   <a href="#pycaw.api.endpointvolume">pycaw.api.endpointvolume</a>
- &#8226;   <a href="#pycaw.api.endpointvolume.depend">pycaw.api.endpointvolume.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi">pycaw.api.mmdeviceapi</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend">pycaw.api.mmdeviceapi.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend.structures">pycaw.api.mmdeviceapi.depend.structures</a>
  &#8226;   <a href="#pygetwindow._pygetwindow_win">pygetwindow._pygetwindow_win</a>
  &#8226;   <a href="#pymsgbox._native_win">pymsgbox._native_win</a>
  &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pyscreeze">pyscreeze</a>
+ &#8226;   <a href="#remote_server.py">remote_server.py</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools.windows_support">setuptools.windows_support</a>
  &#8226;   <a href="#threadpoolctl">threadpoolctl</a>
  &#8226;   <a href="#websockets.__main__">websockets.__main__</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="ctypes._CData"></a>
-  <a target="code" href="" type="text/plain"><tt>ctypes._CData</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#ctypes">ctypes</a>
 
   </div>
 
@@ -8171,6 +7005,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#cffi.api">cffi.api</a>
+ &#8226;   <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
  &#8226;   <a href="#mouseinfo">mouseinfo</a>
  &#8226;   <a href="#threadpoolctl">threadpoolctl</a>
 
@@ -8188,21 +7023,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#comtypes._safearray">comtypes._safearray</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.messageloop">comtypes.messageloop</a>
- &#8226;   <a href="#comtypes.persist">comtypes.persist</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
+    <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
  &#8226;   <a href="#pyautogui._pyautogui_win">pyautogui._pyautogui_win</a>
- &#8226;   <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
- &#8226;   <a href="#pycaw.api.audioclient.depend">pycaw.api.audioclient.depend</a>
- &#8226;   <a href="#pycaw.api.audiopolicy">pycaw.api.audiopolicy</a>
- &#8226;   <a href="#pycaw.api.endpointvolume">pycaw.api.endpointvolume</a>
- &#8226;   <a href="#pycaw.api.endpointvolume.depend">pycaw.api.endpointvolume.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi">pycaw.api.mmdeviceapi</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend">pycaw.api.mmdeviceapi.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend.structures">pycaw.api.mmdeviceapi.depend.structures</a>
  &#8226;   <a href="#pygetwindow._pygetwindow_win">pygetwindow._pygetwindow_win</a>
  &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#threadpoolctl">threadpoolctl</a>
@@ -8255,6 +7077,7 @@ imported by:
  &#8226;   <a href="#cv2.utils">cv2.utils</a>
  &#8226;   <a href="#cv2.version">cv2.version</a>
  &#8226;   <a href="#pyscreeze">pyscreeze</a>
+ &#8226;   <a href="#remote_server.py">remote_server.py</a>
 
   </div>
 
@@ -8569,7 +7392,6 @@ imports:
 imported by:
     <a href="#_strptime">_strptime</a>
  &#8226;   <a href="#calendar">calendar</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
@@ -8602,8 +7424,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#fractions">fractions</a>
+    <a href="#fractions">fractions</a>
  &#8226;   <a href="#statistics">statistics</a>
  &#8226;   <a href="#xmlrpc.client">xmlrpc.client</a>
 
@@ -12845,7 +11666,6 @@ imported by:
  &#8226;   <a href="#psutil._common">psutil._common</a>
  &#8226;   <a href="#psutil._pswindows">psutil._pswindows</a>
  &#8226;   <a href="#py_compile">py_compile</a>
- &#8226;   <a href="#pycaw.constants">pycaw.constants</a>
  &#8226;   <a href="#pyparsing.core">pyparsing.core</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#remote_server.py">remote_server.py</a>
@@ -12904,7 +11724,8 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>fcntl</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#psutil._compat">psutil._compat</a>
+    <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
+ &#8226;   <a href="#psutil._compat">psutil._compat</a>
  &#8226;   <a href="#subprocess">subprocess</a>
 
   </div>
@@ -13033,6 +11854,7 @@ imported by:
  &#8226;   <a href="#jinja2.compiler">jinja2.compiler</a>
  &#8226;   <a href="#jinja2.environment">jinja2.environment</a>
  &#8226;   <a href="#jinja2.runtime">jinja2.runtime</a>
+ &#8226;   <a href="#keyboard._generic">keyboard._generic</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#markupsafe">markupsafe</a>
@@ -13275,6 +12097,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#distutils.command.sdist">distutils.command.sdist</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
  &#8226;   <a href="#pdb">pdb</a>
  &#8226;   <a href="#setuptools._distutils.command.build_py">setuptools._distutils.command.build_py</a>
  &#8226;   <a href="#setuptools._distutils.command.sdist">setuptools._distutils.command.sdist</a>
@@ -13622,7 +12445,6 @@ imports:
  &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib._bootstrap">importlib._bootstrap</a>
  &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
- &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#warnings">warnings</a>
 
@@ -13631,7 +12453,6 @@ imports:
 imported by:
     <a href="#_distutils_hack">_distutils_hack</a>
  &#8226;   <a href="#cffi._imp_emulation">cffi._imp_emulation</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
  &#8226;   <a href="#cv2">cv2</a>
  &#8226;   <a href="#imp">imp</a>
  &#8226;   <a href="#importlib">importlib</a>
@@ -13783,7 +12604,6 @@ imported by:
  &#8226;   <a href="#cffi.verifier">cffi.verifier</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#imp">imp</a>
- &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib.abc">importlib.abc</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#numpy.compat.py3k">numpy.compat.py3k</a>
@@ -14228,7 +13048,6 @@ imported by:
  &#8226;   <a href="#asyncio.format_helpers">asyncio.format_helpers</a>
  &#8226;   <a href="#asyncio.tasks">asyncio.tasks</a>
  &#8226;   <a href="#bdb">bdb</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#doctest">doctest</a>
  &#8226;   <a href="#jinja2.async_utils">jinja2.async_utils</a>
@@ -14309,7 +13128,6 @@ imported by:
  &#8226;   <a href="#cffi.recompiler">cffi.recompiler</a>
  &#8226;   <a href="#cffi.verifier">cffi.verifier</a>
  &#8226;   <a href="#cgi">cgi</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
  &#8226;   <a href="#configparser">configparser</a>
  &#8226;   <a href="#csv">csv</a>
  &#8226;   <a href="#dis">dis</a>
@@ -14352,7 +13170,6 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.pyparsing.diagram">pkg_resources._vendor.pyparsing.diagram</a>
  &#8226;   <a href="#pkg_resources._vendor.zipp">pkg_resources._vendor.zipp</a>
  &#8226;   <a href="#plistlib">plistlib</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#pycparser">pycparser</a>
  &#8226;   <a href="#pydoc">pydoc</a>
@@ -14443,6 +13260,7 @@ imported by:
  &#8226;   <a href="#jinja2.compiler">jinja2.compiler</a>
  &#8226;   <a href="#jinja2.filters">jinja2.filters</a>
  &#8226;   <a href="#jinja2.runtime">jinja2.runtime</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
  &#8226;   <a href="#multiprocessing.process">multiprocessing.process</a>
@@ -14470,10 +13288,8 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.zipp">pkg_resources._vendor.zipp</a>
  &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#plistlib">plistlib</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#pyparsing.unicode">pyparsing.unicode</a>
  &#8226;   <a href="#pyparsing.util">pyparsing.util</a>
- &#8226;   <a href="#qrcode.image.pure">qrcode.image.pure</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#setuptools._distutils._collections">setuptools._distutils._collections</a>
@@ -15210,6 +14026,7 @@ imported by:
  &#8226;   <a href="#json.decoder">json.decoder</a>
  &#8226;   <a href="#json.encoder">json.encoder</a>
  &#8226;   <a href="#json.scanner">json.scanner</a>
+ &#8226;   <a href="#keyboard._keyboard_event">keyboard._keyboard_event</a>
  &#8226;   <a href="#numpy.__config__">numpy.__config__</a>
  &#8226;   <a href="#remote_server.py">remote_server.py</a>
  &#8226;   <a href="#setuptools.config._validate_pyproject.error_reporting">setuptools.config._validate_pyproject.error_reporting</a>
@@ -15278,15 +14095,220 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="keyboard"></a>
+  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/keyboard/__init__.py" type="text/plain"><tt>keyboard</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#Queue">Queue</a>
+ &#8226;   <a href="#__future__">__future__</a>
+ &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._canonical_names">keyboard._canonical_names</a>
+ &#8226;   <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#keyboard._generic">keyboard._generic</a>
+ &#8226;   <a href="#keyboard._keyboard_event">keyboard._keyboard_event</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
+ &#8226;   <a href="#platform">platform</a>
+ &#8226;   <a href="#queue">queue</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#threading">threading</a>
+ &#8226;   <a href="#time">time</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._canonical_names">keyboard._canonical_names</a>
+ &#8226;   <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#keyboard._generic">keyboard._generic</a>
+ &#8226;   <a href="#keyboard._keyboard_event">keyboard._keyboard_event</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
+ &#8226;   <a href="#remote_server.py">remote_server.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="keyboard._canonical_names"></a>
+  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/keyboard/_canonical_names.py" type="text/plain"><tt>keyboard._canonical_names</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#platform">platform</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#keyboard._keyboard_event">keyboard._keyboard_event</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="keyboard._darwinkeyboard"></a>
+  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/keyboard/_darwinkeyboard.py" type="text/plain"><tt>keyboard._darwinkeyboard</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#AppKit">AppKit</a>
+ &#8226;   <a href="#Quartz">Quartz</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._canonical_names">keyboard._canonical_names</a>
+ &#8226;   <a href="#keyboard._keyboard_event">keyboard._keyboard_event</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#threading">threading</a>
+ &#8226;   <a href="#time">time</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#keyboard">keyboard</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="keyboard._generic"></a>
+  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/keyboard/_generic.py" type="text/plain"><tt>keyboard._generic</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#Queue">Queue</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#queue">queue</a>
+ &#8226;   <a href="#threading">threading</a>
+ &#8226;   <a href="#traceback">traceback</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#keyboard">keyboard</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="keyboard._keyboard_event"></a>
+  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/keyboard/_keyboard_event.py" type="text/plain"><tt>keyboard._keyboard_event</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#json">json</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._canonical_names">keyboard._canonical_names</a>
+ &#8226;   <a href="#time">time</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="keyboard._nixcommon"></a>
+  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/keyboard/_nixcommon.py" type="text/plain"><tt>keyboard._nixcommon</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#Queue">Queue</a>
+ &#8226;   <a href="#atexit">atexit</a>
+ &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#fcntl">fcntl</a>
+ &#8226;   <a href="#glob">glob</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#queue">queue</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#struct">struct</a>
+ &#8226;   <a href="#threading">threading</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="keyboard._nixkeyboard"></a>
+  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/keyboard/_nixkeyboard.py" type="text/plain"><tt>keyboard._nixkeyboard</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#collections">collections</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._canonical_names">keyboard._canonical_names</a>
+ &#8226;   <a href="#keyboard._keyboard_event">keyboard._keyboard_event</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#struct">struct</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#traceback">traceback</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#keyboard">keyboard</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="keyboard._winkeyboard"></a>
+  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/keyboard/_winkeyboard.py" type="text/plain"><tt>keyboard._winkeyboard</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#atexit">atexit</a>
+ &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._canonical_names">keyboard._canonical_names</a>
+ &#8226;   <a href="#keyboard._keyboard_event">keyboard._keyboard_event</a>
+ &#8226;   <a href="#pprint">pprint</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#threading">threading</a>
+ &#8226;   <a href="#traceback">traceback</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#keyboard">keyboard</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="keyword"></a>
   <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/keyword.py" type="text/plain"><tt>keyword</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imported by:
     <a href="#collections">collections</a>
- &#8226;   <a href="#comtypes.client._constants">comtypes.client._constants</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.helpers">comtypes.tools.codegenerator.helpers</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.typeannotator">comtypes.tools.codegenerator.typeannotator</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#jinja2.compiler">jinja2.compiler</a>
@@ -15387,14 +14409,6 @@ imported by:
  &#8226;   <a href="#PIL.TiffImagePlugin">PIL.TiffImagePlugin</a>
  &#8226;   <a href="#asyncio.futures">asyncio.futures</a>
  &#8226;   <a href="#asyncio.log">asyncio.log</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
  &#8226;   <a href="#concurrent.futures._base">concurrent.futures._base</a>
  &#8226;   <a href="#hashlib">hashlib</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
@@ -15548,10 +14562,7 @@ imported by:
  &#8226;   <a href="#numpy.lib">numpy.lib</a>
  &#8226;   <a href="#numpy.lib.index_tricks">numpy.lib.index_tricks</a>
  &#8226;   <a href="#pkg_resources._vendor.more_itertools.more">pkg_resources._vendor.more_itertools.more</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#pytweening">pytweening</a>
- &#8226;   <a href="#qrcode.image.styles.colormasks">qrcode.image.styles.colormasks</a>
- &#8226;   <a href="#qrcode.util">qrcode.util</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#selectors">selectors</a>
  &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
@@ -15641,7 +14652,6 @@ imported by:
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#multiprocessing.popen_spawn_win32">multiprocessing.popen_spawn_win32</a>
  &#8226;   <a href="#multiprocessing.spawn">multiprocessing.spawn</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#subprocess">subprocess</a>
 
   </div>
@@ -16655,7 +15665,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#PIL.Image">PIL.Image</a>
- &#8226;   <a href="#comtypes._npsupport">comtypes._npsupport</a>
  &#8226;   <a href="#cv2">cv2</a>
  &#8226;   <a href="#cv2.mat_wrapper">cv2.mat_wrapper</a>
  &#8226;   <a href="#cv2.typing">cv2.typing</a>
@@ -16737,6 +15746,7 @@ imported by:
  &#8226;   <a href="#numpy.typing">numpy.typing</a>
  &#8226;   <a href="#numpy.version">numpy.version</a>
  &#8226;   <a href="#pyscreeze">pyscreeze</a>
+ &#8226;   <a href="#remote_server.py">remote_server.py</a>
 
   </div>
 
@@ -19404,8 +18414,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#comtypes._npsupport">comtypes._npsupport</a>
- &#8226;   <a href="#numpy">numpy</a>
+    <a href="#numpy">numpy</a>
 
   </div>
 
@@ -21575,7 +20584,6 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.packaging._musllinux">pkg_resources._vendor.packaging._musllinux</a>
  &#8226;   <a href="#pkg_resources._vendor.packaging.markers">pkg_resources._vendor.packaging.markers</a>
  &#8226;   <a href="#pkg_resources._vendor.pyparsing.core">pkg_resources._vendor.pyparsing.core</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#pyparsing.core">pyparsing.core</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#remote_server.py">remote_server.py</a>
@@ -21674,14 +20682,6 @@ imported by:
  &#8226;   <a href="#cffi.vengine_gen">cffi.vengine_gen</a>
  &#8226;   <a href="#cffi.verifier">cffi.verifier</a>
  &#8226;   <a href="#cgi">cgi</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes._tlib_version_checker">comtypes._tlib_version_checker</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
  &#8226;   <a href="#concurrent.futures.process">concurrent.futures.process</a>
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
  &#8226;   <a href="#configparser">configparser</a>
@@ -21737,6 +20737,8 @@ imported by:
  &#8226;   <a href="#jinja2.environment">jinja2.environment</a>
  &#8226;   <a href="#jinja2.loaders">jinja2.loaders</a>
  &#8226;   <a href="#jinja2.utils">jinja2.utils</a>
+ &#8226;   <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
@@ -21794,7 +20796,6 @@ imported by:
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#plistlib">plistlib</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#psutil">psutil</a>
  &#8226;   <a href="#psutil._common">psutil._common</a>
@@ -23644,6 +22645,8 @@ imports:
   <div class="import">
 imported by:
     <a href="#cv2">cv2</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._canonical_names">keyboard._canonical_names</a>
  &#8226;   <a href="#mouseinfo">mouseinfo</a>
  &#8226;   <a href="#numpy.lib.utils">numpy.lib.utils</a>
  &#8226;   <a href="#numpy.testing._private.utils">numpy.testing._private.utils</a>
@@ -23690,34 +22693,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#pkg_resources">pkg_resources</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="png"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/png.py" type="text/plain"><tt>png</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#array">array</a>
- &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#io">io</a>
- &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#math">math</a>
- &#8226;   <a href="#msvcrt">msvcrt</a>
- &#8226;   <a href="#operator">operator</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#re">re</a>
- &#8226;   <a href="#struct">struct</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#warnings">warnings</a>
- &#8226;   <a href="#zlib">zlib</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.image.pure">qrcode.image.pure</a>
 
   </div>
 
@@ -23798,6 +22773,7 @@ imported by:
     <a href="#distutils.dist">distutils.dist</a>
  &#8226;   <a href="#jinja2.ext">jinja2.ext</a>
  &#8226;   <a href="#jinja2.utils">jinja2.utils</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
  &#8226;   <a href="#numpy.lib.utils">numpy.lib.utils</a>
  &#8226;   <a href="#numpy.testing._private.utils">numpy.testing._private.utils</a>
  &#8226;   <a href="#pdb">pdb</a>
@@ -23848,8 +22824,6 @@ imported by:
  &#8226;   <a href="#psutil._compat">psutil._compat</a>
  &#8226;   <a href="#psutil._psutil_windows">psutil._psutil_windows</a>
  &#8226;   <a href="#psutil._pswindows">psutil._pswindows</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
- &#8226;   <a href="#remote_server.py">remote_server.py</a>
 
   </div>
 
@@ -24109,287 +23083,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#pyautogui">pyautogui</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/__init__.py" type="text/plain"><tt>pycaw</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imported by:
-    <a href="#pycaw.api">pycaw.api</a>
- &#8226;   <a href="#pycaw.constants">pycaw.constants</a>
- &#8226;   <a href="#pycaw.pycaw">pycaw.pycaw</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.api"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/api/__init__.py" type="text/plain"><tt>pycaw.api</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#pycaw">pycaw</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
- &#8226;   <a href="#pycaw.api.audiopolicy">pycaw.api.audiopolicy</a>
- &#8226;   <a href="#pycaw.api.endpointvolume">pycaw.api.endpointvolume</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi">pycaw.api.mmdeviceapi</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.api.audioclient"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/api/audioclient/__init__.py" type="text/plain"><tt>pycaw.api.audioclient</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#pycaw.api">pycaw.api</a>
- &#8226;   <a href="#pycaw.api.audioclient.depend">pycaw.api.audioclient.depend</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.api.audioclient.depend">pycaw.api.audioclient.depend</a>
- &#8226;   <a href="#pycaw.api.audiopolicy">pycaw.api.audiopolicy</a>
- &#8226;   <a href="#pycaw.pycaw">pycaw.pycaw</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.api.audioclient.depend"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/api/audioclient/depend.py" type="text/plain"><tt>pycaw.api.audioclient.depend</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
- &#8226;   <a href="#pycaw.pycaw">pycaw.pycaw</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.api.audiopolicy"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/api/audiopolicy/__init__.py" type="text/plain"><tt>pycaw.api.audiopolicy</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#pycaw.api">pycaw.api</a>
- &#8226;   <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.pycaw">pycaw.pycaw</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.api.endpointvolume"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/api/endpointvolume/__init__.py" type="text/plain"><tt>pycaw.api.endpointvolume</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#pycaw.api">pycaw.api</a>
- &#8226;   <a href="#pycaw.api.endpointvolume.depend">pycaw.api.endpointvolume.depend</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.api.endpointvolume.depend">pycaw.api.endpointvolume.depend</a>
- &#8226;   <a href="#pycaw.pycaw">pycaw.pycaw</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.api.endpointvolume.depend"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/api/endpointvolume/depend.py" type="text/plain"><tt>pycaw.api.endpointvolume.depend</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#pycaw.api.endpointvolume">pycaw.api.endpointvolume</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.api.endpointvolume">pycaw.api.endpointvolume</a>
- &#8226;   <a href="#pycaw.pycaw">pycaw.pycaw</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.api.mmdeviceapi"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/api/mmdeviceapi/__init__.py" type="text/plain"><tt>pycaw.api.mmdeviceapi</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#pycaw.api">pycaw.api</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend">pycaw.api.mmdeviceapi.depend</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.api.mmdeviceapi.depend">pycaw.api.mmdeviceapi.depend</a>
- &#8226;   <a href="#pycaw.pycaw">pycaw.pycaw</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.api.mmdeviceapi.depend"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/api/mmdeviceapi/depend/__init__.py" type="text/plain"><tt>pycaw.api.mmdeviceapi.depend</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi">pycaw.api.mmdeviceapi</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend.structures">pycaw.api.mmdeviceapi.depend.structures</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.api.mmdeviceapi">pycaw.api.mmdeviceapi</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend.structures">pycaw.api.mmdeviceapi.depend.structures</a>
- &#8226;   <a href="#pycaw.pycaw">pycaw.pycaw</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.api.mmdeviceapi.depend.structures"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/api/mmdeviceapi/depend/structures.py" type="text/plain"><tt>pycaw.api.mmdeviceapi.depend.structures</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend">pycaw.api.mmdeviceapi.depend</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.api.mmdeviceapi.depend">pycaw.api.mmdeviceapi.depend</a>
- &#8226;   <a href="#pycaw.pycaw">pycaw.pycaw</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.constants"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/constants.py" type="text/plain"><tt>pycaw.constants</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#enum">enum</a>
- &#8226;   <a href="#pycaw">pycaw</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.pycaw">pycaw.pycaw</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.pycaw"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/pycaw.py" type="text/plain"><tt>pycaw.pycaw</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#pycaw">pycaw</a>
- &#8226;   <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
- &#8226;   <a href="#pycaw.api.audioclient.depend">pycaw.api.audioclient.depend</a>
- &#8226;   <a href="#pycaw.api.audiopolicy">pycaw.api.audiopolicy</a>
- &#8226;   <a href="#pycaw.api.endpointvolume">pycaw.api.endpointvolume</a>
- &#8226;   <a href="#pycaw.api.endpointvolume.depend">pycaw.api.endpointvolume.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi">pycaw.api.mmdeviceapi</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend">pycaw.api.mmdeviceapi.depend</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi.depend.structures">pycaw.api.mmdeviceapi.depend.structures</a>
- &#8226;   <a href="#pycaw.constants">pycaw.constants</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#remote_server.py">remote_server.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pycaw.utils"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/pycaw/utils.py" type="text/plain"><tt>pycaw.utils</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#_ctypes">_ctypes</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#psutil">psutil</a>
- &#8226;   <a href="#pycaw">pycaw</a>
- &#8226;   <a href="#pycaw.api.audioclient">pycaw.api.audioclient</a>
- &#8226;   <a href="#pycaw.api.audiopolicy">pycaw.api.audiopolicy</a>
- &#8226;   <a href="#pycaw.api.endpointvolume">pycaw.api.endpointvolume</a>
- &#8226;   <a href="#pycaw.api.mmdeviceapi">pycaw.api.mmdeviceapi</a>
- &#8226;   <a href="#pycaw.constants">pycaw.constants</a>
- &#8226;   <a href="#warnings">warnings</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pycaw.pycaw">pycaw.pycaw</a>
 
   </div>
 
@@ -25481,403 +24174,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="qrcode"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/__init__.py" type="text/plain"><tt>qrcode</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.LUT">qrcode.LUT</a>
- &#8226;   <a href="#qrcode.base">qrcode.base</a>
- &#8226;   <a href="#qrcode.constants">qrcode.constants</a>
- &#8226;   <a href="#qrcode.exceptions">qrcode.exceptions</a>
- &#8226;   <a href="#qrcode.image">qrcode.image</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
- &#8226;   <a href="#qrcode.util">qrcode.util</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.LUT">qrcode.LUT</a>
- &#8226;   <a href="#qrcode.base">qrcode.base</a>
- &#8226;   <a href="#qrcode.compat">qrcode.compat</a>
- &#8226;   <a href="#qrcode.constants">qrcode.constants</a>
- &#8226;   <a href="#qrcode.exceptions">qrcode.exceptions</a>
- &#8226;   <a href="#qrcode.image">qrcode.image</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
- &#8226;   <a href="#qrcode.util">qrcode.util</a>
- &#8226;   <a href="#remote_server.py">remote_server.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.LUT"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/LUT.py" type="text/plain"><tt>qrcode.LUT</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#qrcode">qrcode</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.util">qrcode.util</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.base"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/base.py" type="text/plain"><tt>qrcode.base</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.constants">qrcode.constants</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.util">qrcode.util</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.compat"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/compat/__init__.py" type="text/plain"><tt>qrcode.compat</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#qrcode">qrcode</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.compat.pil"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/compat/pil.py" type="text/plain"><tt>qrcode.compat.pil</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#Image">Image</a>
- &#8226;   <a href="#ImageDraw">ImageDraw</a>
- &#8226;   <a href="#PIL">PIL</a>
- &#8226;   <a href="#PIL.Image">PIL.Image</a>
- &#8226;   <a href="#PIL.ImageDraw">PIL.ImageDraw</a>
- &#8226;   <a href="#qrcode.compat">qrcode.compat</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.image.pil">qrcode.image.pil</a>
- &#8226;   <a href="#qrcode.image.styledpil">qrcode.image.styledpil</a>
- &#8226;   <a href="#qrcode.image.styles.colormasks">qrcode.image.styles.colormasks</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.pil">qrcode.image.styles.moduledrawers.pil</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.constants"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/constants.py" type="text/plain"><tt>qrcode.constants</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#qrcode">qrcode</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.base">qrcode.base</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.exceptions"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/exceptions.py" type="text/plain"><tt>qrcode.exceptions</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#qrcode">qrcode</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
- &#8226;   <a href="#qrcode.util">qrcode.util</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/__init__.py" type="text/plain"><tt>qrcode.image</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#qrcode">qrcode</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.image.base">qrcode.image.base</a>
- &#8226;   <a href="#qrcode.image.pil">qrcode.image.pil</a>
- &#8226;   <a href="#qrcode.image.pure">qrcode.image.pure</a>
- &#8226;   <a href="#qrcode.image.styledpil">qrcode.image.styledpil</a>
- &#8226;   <a href="#qrcode.image.styles">qrcode.image.styles</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image.base"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/base.py" type="text/plain"><tt>qrcode.image.base</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#abc">abc</a>
- &#8226;   <a href="#qrcode.image">qrcode.image</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.base">qrcode.image.styles.moduledrawers.base</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.image.pil">qrcode.image.pil</a>
- &#8226;   <a href="#qrcode.image.pure">qrcode.image.pure</a>
- &#8226;   <a href="#qrcode.image.styledpil">qrcode.image.styledpil</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.base">qrcode.image.styles.moduledrawers.base</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image.pil"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/pil.py" type="text/plain"><tt>qrcode.image.pil</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
- &#8226;   <a href="#qrcode.image">qrcode.image</a>
- &#8226;   <a href="#qrcode.image.base">qrcode.image.base</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.main">qrcode.main</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image.pure"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/pure.py" type="text/plain"><tt>qrcode.image.pure</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#itertools">itertools</a>
- &#8226;   <a href="#png">png</a>
- &#8226;   <a href="#qrcode.image">qrcode.image</a>
- &#8226;   <a href="#qrcode.image.base">qrcode.image.base</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.main">qrcode.main</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image.styledpil"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/styledpil.py" type="text/plain"><tt>qrcode.image.styledpil</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
- &#8226;   <a href="#qrcode.image">qrcode.image</a>
- &#8226;   <a href="#qrcode.image.base">qrcode.image.base</a>
- &#8226;   <a href="#qrcode.image.styles.colormasks">qrcode.image.styles.colormasks</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers">qrcode.image.styles.moduledrawers</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.image.styles.moduledrawers.pil">qrcode.image.styles.moduledrawers.pil</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image.styles"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/styles/__init__.py" type="text/plain"><tt>qrcode.image.styles</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#qrcode.image">qrcode.image</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.image.styles.colormasks">qrcode.image.styles.colormasks</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers">qrcode.image.styles.moduledrawers</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image.styles.colormasks"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/styles/colormasks.py" type="text/plain"><tt>qrcode.image.styles.colormasks</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#math">math</a>
- &#8226;   <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
- &#8226;   <a href="#qrcode.image.styles">qrcode.image.styles</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.image.styledpil">qrcode.image.styledpil</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image.styles.moduledrawers"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/styles/moduledrawers/__init__.py" type="text/plain"><tt>qrcode.image.styles.moduledrawers</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#qrcode.image.styles">qrcode.image.styles</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.pil">qrcode.image.styles.moduledrawers.pil</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.image.styledpil">qrcode.image.styledpil</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.base">qrcode.image.styles.moduledrawers.base</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.pil">qrcode.image.styles.moduledrawers.pil</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image.styles.moduledrawers.base"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/styles/moduledrawers/base.py" type="text/plain"><tt>qrcode.image.styles.moduledrawers.base</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#abc">abc</a>
- &#8226;   <a href="#qrcode.image.base">qrcode.image.base</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers">qrcode.image.styles.moduledrawers</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.image.base">qrcode.image.base</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.pil">qrcode.image.styles.moduledrawers.pil</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.image.styles.moduledrawers.pil"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/image/styles/moduledrawers/pil.py" type="text/plain"><tt>qrcode.image.styles.moduledrawers.pil</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#qrcode.compat.pil">qrcode.compat.pil</a>
- &#8226;   <a href="#qrcode.image.styledpil">qrcode.image.styledpil</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers">qrcode.image.styles.moduledrawers</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.base">qrcode.image.styles.moduledrawers.base</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode.image.styles.moduledrawers">qrcode.image.styles.moduledrawers</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.main"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/main.py" type="text/plain"><tt>qrcode.main</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#bisect">bisect</a>
- &#8226;   <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.constants">qrcode.constants</a>
- &#8226;   <a href="#qrcode.exceptions">qrcode.exceptions</a>
- &#8226;   <a href="#qrcode.image.base">qrcode.image.base</a>
- &#8226;   <a href="#qrcode.image.pil">qrcode.image.pil</a>
- &#8226;   <a href="#qrcode.image.pure">qrcode.image.pure</a>
- &#8226;   <a href="#qrcode.util">qrcode.util</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.image.base">qrcode.image.base</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.pil">qrcode.image.styles.moduledrawers.pil</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="qrcode.util"></a>
-  <a target="code" href="///C:/Users/abc/AppData/Local/Programs/Python/Python311/Lib/site-packages/qrcode/util.py" type="text/plain"><tt>qrcode.util</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#math">math</a>
- &#8226;   <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.LUT">qrcode.LUT</a>
- &#8226;   <a href="#qrcode.base">qrcode.base</a>
- &#8226;   <a href="#qrcode.exceptions">qrcode.exceptions</a>
- &#8226;   <a href="#re">re</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="qtpy"></a>
   <a target="code" href="" type="text/plain"><tt>qtpy</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
@@ -25903,9 +24199,11 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#concurrent.futures.process">concurrent.futures.process</a>
+    <a href="#concurrent.futures.process">concurrent.futures.process</a>
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._generic">keyboard._generic</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
  &#8226;   <a href="#multiprocessing.dummy">multiprocessing.dummy</a>
  &#8226;   <a href="#multiprocessing.dummy.connection">multiprocessing.dummy.connection</a>
  &#8226;   <a href="#multiprocessing.managers">multiprocessing.managers</a>
@@ -26085,6 +24383,10 @@ imported by:
  &#8226;   <a href="#json.decoder">json.decoder</a>
  &#8226;   <a href="#json.encoder">json.encoder</a>
  &#8226;   <a href="#json.scanner">json.scanner</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#numpy._typing._add_docstring">numpy._typing._add_docstring</a>
@@ -26119,7 +24421,6 @@ imported by:
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#plistlib">plistlib</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#pyautogui">pyautogui</a>
@@ -26131,7 +24432,6 @@ imported by:
  &#8226;   <a href="#pyparsing.exceptions">pyparsing.exceptions</a>
  &#8226;   <a href="#pyparsing.helpers">pyparsing.helpers</a>
  &#8226;   <a href="#pyparsing.testing">pyparsing.testing</a>
- &#8226;   <a href="#qrcode.util">qrcode.util</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#re._casefix">re._casefix</a>
  &#8226;   <a href="#re._compiler">re._compiler</a>
@@ -30949,6 +29249,8 @@ imported by:
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#gzip">gzip</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.forkserver">multiprocessing.forkserver</a>
  &#8226;   <a href="#multiprocessing.shared_memory">multiprocessing.shared_memory</a>
@@ -30961,7 +29263,6 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.packaging._musllinux">pkg_resources._vendor.packaging._musllinux</a>
  &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#plistlib">plistlib</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#psutil._compat">psutil._compat</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging._musllinux">setuptools._vendor.packaging._musllinux</a>
@@ -31025,6 +29326,7 @@ imported by:
  &#8226;   <a href="#distutils.spawn">distutils.spawn</a>
  &#8226;   <a href="#distutils.util">distutils.util</a>
  &#8226;   <a href="#http.server">http.server</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
  &#8226;   <a href="#mouseinfo">mouseinfo</a>
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
  &#8226;   <a href="#numpy.testing._private.extbuild">numpy.testing._private.extbuild</a>
@@ -31043,7 +29345,6 @@ imported by:
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pyscreeze">pyscreeze</a>
- &#8226;   <a href="#remote_server.py">remote_server.py</a>
  &#8226;   <a href="#setuptools._distutils._msvccompiler">setuptools._distutils._msvccompiler</a>
  &#8226;   <a href="#setuptools._distutils.command._framework_compat">setuptools._distutils.command._framework_compat</a>
  &#8226;   <a href="#setuptools._distutils.command.bdist_rpm">setuptools._distutils.command.bdist_rpm</a>
@@ -31124,21 +29425,6 @@ imported by:
  &#8226;   <a href="#code">code</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes.GUID">comtypes.GUID</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes._npsupport">comtypes._npsupport</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes._tlib_version_checker">comtypes._tlib_version_checker</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.client._constants">comtypes.client._constants</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.connectionpoints">comtypes.connectionpoints</a>
- &#8226;   <a href="#comtypes.errorinfo">comtypes.errorinfo</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
  &#8226;   <a href="#concurrent.futures.process">concurrent.futures.process</a>
  &#8226;   <a href="#configparser">configparser</a>
  &#8226;   <a href="#contextlib">contextlib</a>
@@ -31263,7 +29549,6 @@ imported by:
  &#8226;   <a href="#pkg_resources.extern">pkg_resources.extern</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#platform">platform</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#psutil">psutil</a>
@@ -31296,8 +29581,6 @@ imported by:
  &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pyscreeze">pyscreeze</a>
  &#8226;   <a href="#pywintypes">pywintypes</a>
- &#8226;   <a href="#qrcode">qrcode</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
  &#8226;   <a href="#quopri">quopri</a>
  &#8226;   <a href="#re._compiler">re._compiler</a>
  &#8226;   <a href="#remote_server.py">remote_server.py</a>
@@ -31526,7 +29809,6 @@ imported by:
  &#8226;   <a href="#_osx_support">_osx_support</a>
  &#8226;   <a href="#asyncio.windows_utils">asyncio.windows_utils</a>
  &#8226;   <a href="#cgi">cgi</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#distutils.ccompiler">distutils.ccompiler</a>
  &#8226;   <a href="#distutils.util">distutils.util</a>
@@ -31579,8 +29861,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#argparse">argparse</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.namespaces">comtypes.tools.codegenerator.namespaces</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.metadata._adapters">importlib.metadata._adapters</a>
  &#8226;   <a href="#jinja2.filters">jinja2.filters</a>
@@ -31646,13 +29926,16 @@ imported by:
  &#8226;   <a href="#asyncio.proactor_events">asyncio.proactor_events</a>
  &#8226;   <a href="#asyncio.runners">asyncio.runners</a>
  &#8226;   <a href="#asyncio.unix_events">asyncio.unix_events</a>
- &#8226;   <a href="#comtypes._comobject">comtypes._comobject</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
  &#8226;   <a href="#concurrent.futures._base">concurrent.futures._base</a>
  &#8226;   <a href="#concurrent.futures.process">concurrent.futures.process</a>
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#jinja2.utils">jinja2.utils</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#keyboard._generic">keyboard._generic</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#multiprocessing.context">multiprocessing.context</a>
  &#8226;   <a href="#multiprocessing.dummy">multiprocessing.dummy</a>
@@ -31746,6 +30029,11 @@ imported by:
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
+ &#8226;   <a href="#keyboard">keyboard</a>
+ &#8226;   <a href="#keyboard._darwinkeyboard">keyboard._darwinkeyboard</a>
+ &#8226;   <a href="#keyboard._keyboard_event">keyboard._keyboard_event</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.managers">multiprocessing.managers</a>
@@ -31922,10 +30210,12 @@ imported by:
  &#8226;   <a href="#asyncio.format_helpers">asyncio.format_helpers</a>
  &#8226;   <a href="#cgi">cgi</a>
  &#8226;   <a href="#code">code</a>
- &#8226;   <a href="#comtypes.client._events">comtypes.client._events</a>
  &#8226;   <a href="#concurrent.futures.process">concurrent.futures.process</a>
  &#8226;   <a href="#doctest">doctest</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
+ &#8226;   <a href="#keyboard._generic">keyboard._generic</a>
+ &#8226;   <a href="#keyboard._nixkeyboard">keyboard._nixkeyboard</a>
+ &#8226;   <a href="#keyboard._winkeyboard">keyboard._winkeyboard</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#multiprocessing.managers">multiprocessing.managers</a>
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
@@ -32025,9 +30315,6 @@ imported by:
  &#8226;   <a href="#cffi.api">cffi.api</a>
  &#8226;   <a href="#cffi.model">cffi.model</a>
  &#8226;   <a href="#cffi.vengine_gen">cffi.vengine_gen</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes.client._code_cache">comtypes.client._code_cache</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
  &#8226;   <a href="#concurrent.futures._base">concurrent.futures._base</a>
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
  &#8226;   <a href="#contextlib">contextlib</a>
@@ -32143,23 +30430,6 @@ imported by:
  &#8226;   <a href="#PIL._util">PIL._util</a>
  &#8226;   <a href="#asyncio.staggered">asyncio.staggered</a>
  &#8226;   <a href="#asyncio.timeouts">asyncio.timeouts</a>
- &#8226;   <a href="#comtypes">comtypes</a>
- &#8226;   <a href="#comtypes._memberspec">comtypes._memberspec</a>
- &#8226;   <a href="#comtypes._post_coinit.misc">comtypes._post_coinit.misc</a>
- &#8226;   <a href="#comtypes._post_coinit.unknwn">comtypes._post_coinit.unknwn</a>
- &#8226;   <a href="#comtypes.automation">comtypes.automation</a>
- &#8226;   <a href="#comtypes.client">comtypes.client</a>
- &#8226;   <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#comtypes.client.dynamic">comtypes.client.dynamic</a>
- &#8226;   <a href="#comtypes.safearray">comtypes.safearray</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.helpers">comtypes.tools.codegenerator.helpers</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.namespaces">comtypes.tools.codegenerator.namespaces</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.typeannotator">comtypes.tools.codegenerator.typeannotator</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
- &#8226;   <a href="#comtypes.tools.typedesc">comtypes.tools.typedesc</a>
- &#8226;   <a href="#comtypes.tools.typedesc_base">comtypes.tools.typedesc_base</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
  &#8226;   <a href="#cv2.mat_wrapper">cv2.mat_wrapper</a>
  &#8226;   <a href="#cv2.typing">cv2.typing</a>
  &#8226;   <a href="#functools">functools</a>
@@ -32257,12 +30527,6 @@ imported by:
  &#8226;   <a href="#pyparsing.unicode">pyparsing.unicode</a>
  &#8226;   <a href="#pyparsing.util">pyparsing.util</a>
  &#8226;   <a href="#pytweening">pytweening</a>
- &#8226;   <a href="#qrcode.base">qrcode.base</a>
- &#8226;   <a href="#qrcode.image.base">qrcode.image.base</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.base">qrcode.image.styles.moduledrawers.base</a>
- &#8226;   <a href="#qrcode.image.styles.moduledrawers.pil">qrcode.image.styles.moduledrawers.pil</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
- &#8226;   <a href="#qrcode.util">qrcode.util</a>
  &#8226;   <a href="#setuptools._path">setuptools._path</a>
  &#8226;   <a href="#setuptools._vendor.importlib_metadata">setuptools._vendor.importlib_metadata</a>
  &#8226;   <a href="#setuptools._vendor.importlib_metadata._compat">setuptools._vendor.importlib_metadata._compat</a>
@@ -32377,7 +30641,6 @@ imported by:
  &#8226;   <a href="#jinja2.visitor">jinja2.visitor</a>
  &#8226;   <a href="#markupsafe">markupsafe</a>
  &#8226;   <a href="#packaging.metadata">packaging.metadata</a>
- &#8226;   <a href="#qrcode.main">qrcode.main</a>
  &#8226;   <a href="#setuptools.command.build">setuptools.command.build</a>
 
   </div>
@@ -32878,8 +31141,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#remote_server.py">remote_server.py</a>
- &#8226;   <a href="#websockets.legacy.protocol">websockets.legacy.protocol</a>
+    <a href="#websockets.legacy.protocol">websockets.legacy.protocol</a>
  &#8226;   <a href="#websockets.protocol">websockets.protocol</a>
  &#8226;   <a href="#websockets.sync.connection">websockets.sync.connection</a>
 
@@ -32941,8 +31203,6 @@ imported by:
  &#8226;   <a href="#cffi.vengine_cpy">cffi.vengine_cpy</a>
  &#8226;   <a href="#cgi">cgi</a>
  &#8226;   <a href="#codeop">codeop</a>
- &#8226;   <a href="#comtypes.tools.codegenerator.codegenerator">comtypes.tools.codegenerator.codegenerator</a>
- &#8226;   <a href="#comtypes.tools.tlbparser">comtypes.tools.tlbparser</a>
  &#8226;   <a href="#configparser">configparser</a>
  &#8226;   <a href="#distutils">distutils</a>
  &#8226;   <a href="#distutils.archive_util">distutils.archive_util</a>
@@ -32968,6 +31228,7 @@ imported by:
  &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
  &#8226;   <a href="#importlib.util">importlib.util</a>
  &#8226;   <a href="#io">io</a>
+ &#8226;   <a href="#keyboard._nixcommon">keyboard._nixcommon</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#multiprocessing.forkserver">multiprocessing.forkserver</a>
@@ -33018,9 +31279,7 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.pyparsing.core">pkg_resources._vendor.pyparsing.core</a>
  &#8226;   <a href="#pkg_resources._vendor.pyparsing.util">pkg_resources._vendor.pyparsing.util</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#psutil._common">psutil._common</a>
- &#8226;   <a href="#pycaw.utils">pycaw.utils</a>
  &#8226;   <a href="#pycparser.ply.yacc">pycparser.ply.yacc</a>
  &#8226;   <a href="#pycparser.plyparser">pycparser.plyparser</a>
  &#8226;   <a href="#pydoc">pydoc</a>
@@ -33127,7 +31386,6 @@ imported by:
  &#8226;   <a href="#asyncio.windows_events">asyncio.windows_events</a>
  &#8226;   <a href="#cffi.cparser">cffi.cparser</a>
  &#8226;   <a href="#cffi.model">cffi.model</a>
- &#8226;   <a href="#comtypes.typeinfo">comtypes.typeinfo</a>
  &#8226;   <a href="#concurrent.futures.process">concurrent.futures.process</a>
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
  &#8226;   <a href="#copy">copy</a>
@@ -34918,8 +33176,7 @@ imported by:
   <a name="winreg"></a>
   <tt>winreg</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
-    <a href="#comtypes.client._generate">comtypes.client._generate</a>
- &#8226;   <a href="#distutils._msvccompiler">distutils._msvccompiler</a>
+    <a href="#distutils._msvccompiler">distutils._msvccompiler</a>
  &#8226;   <a href="#distutils.msvc9compiler">distutils.msvc9compiler</a>
  &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
@@ -35649,7 +33906,6 @@ imported by:
  &#8226;   <a href="#PIL.PngImagePlugin">PIL.PngImagePlugin</a>
  &#8226;   <a href="#encodings.zlib_codec">encodings.zlib_codec</a>
  &#8226;   <a href="#gzip">gzip</a>
- &#8226;   <a href="#png">png</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#websockets.extensions.permessage_deflate">websockets.extensions.permessage_deflate</a>
