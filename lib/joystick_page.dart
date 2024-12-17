@@ -305,6 +305,15 @@ class _JoyStickPage extends State<JoystickPage> {
               context,
               MaterialPageRoute(
                 builder: (context) => SeamlessModePage(ipAddress: widget.ipAddress),
+              ),
+            );
+          },
+              icon: Icon(Icons.cast)),
+          IconButton(onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SeamlessModePage(ipAddress: widget.ipAddress),
                   ),
             );
             },
